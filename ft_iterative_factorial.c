@@ -13,13 +13,7 @@ int  ft_atoi(char *str)
   while (str[i] == '+' || str[i] == '-')
   {
     if (str[i] == '-')
-    {
-      sign = sign * (-1);
-    }
-    else
-    {
-
-    }
+      sign *= -1;
     i++;
   }
   nb = 0;
@@ -30,6 +24,7 @@ int  ft_atoi(char *str)
   }
   return (sign * nb);
 }
+//The atoi function will help us get the int in the argv since argv is a string of char
 
 int ft_iterative_factorial(int nb)
 {
@@ -50,6 +45,7 @@ int ft_iterative_factorial(int nb)
   }
   return (fact);
 }
+//This function will give us the factorial on an int while checking for overflow since INT_MAX = 2.147.483.647
 
 #include <stdio.h>
 
