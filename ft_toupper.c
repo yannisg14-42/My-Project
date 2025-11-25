@@ -1,0 +1,32 @@
+#include <stddef.h>
+
+char  *ft_toupper(char *str)
+{
+  size_t  i;
+
+  i = 0;
+  while (str[i])
+  {
+    if (str[i] >= 'a' && str[i] <= 'z')
+      str[i] = str[i] - 32;
+    i++;
+  }
+  return (str);
+}
+// ft_toupper will read the entire string except '\0'
+// while reading if it encounter a lowercase char it convert it uppercase
+// the conversion is done by substracting 32 because in ASCII lowercase char are 32 higher than uppercase
+
+#include <stdio.h>
+
+int  main(int argc, char **argv)
+{
+  char  *str;
+  
+  if (argc == 2)
+  {
+    str = ft_toupper(argv[1]);
+    printf("%s\n", str);
+  }
+  return (0);
+}
