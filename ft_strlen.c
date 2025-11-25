@@ -1,6 +1,20 @@
-int  ft_strlen(char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgarba <sgarba@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/25 16:40:27 by sgarba            #+#    #+#             */
+/*   Updated: 2025/11/25 16:44:45 by sgarba           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+int  ft_strlen(const char *str)
 {
-  int  i;
+  size_t  i;
 
   i = 0;
   while (str[i])
@@ -12,22 +26,13 @@ int  ft_strlen(char *str)
 
 #include <stdio.h>
 
-int  main(int argc, char **argv)
+int  main(int argc, const char **argv)
 {
-  int  i;
   int  length;
-  int  n;
 
-  n = 1;
-  length = ft_strlen(argv[n]);
-  while (n < argc)
+  if (argc == 2)
   {
-    i = 0;
-    while (argv[n][i])
-    {
-      ft_strlen(argv[n][i]);
-      i++;
-    }
+    length = ft_strlen(argv[1]);
     printf("the length of the string is %d\n", length);
   }
   return (0);

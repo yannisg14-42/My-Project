@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgarba <sgarba@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/25 16:37:07 by sgarba            #+#    #+#             */
+/*   Updated: 2025/11/25 16:37:18 by sgarba           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 
 int  ft_atoi(const char *str)
 {
-  size_t  i; // size_t guaranteedd to hold any array index and is not signed 
+  size_t  i; // size_t guaranteed to hold any array index and is not signed 
   int  sign;
   int  number;
 
