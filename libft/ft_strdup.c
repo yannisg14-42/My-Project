@@ -21,7 +21,7 @@ char	*ft_strdup(const char *str)
 
 	str_len = ft_strlen(str);
 	dup_str = malloc(str_len + 1);
-	if (dup_str == NULL)
+	if (!dup_str)
 		return (NULL);
 	ft_memcpy(dup_str, str, (str_len + 1));
 	return (dup_str);
