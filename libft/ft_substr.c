@@ -24,7 +24,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (start >= s_len)
 	{
 		substr = malloc(1);
-		if (substr == NULL)
+		if (!substr)
 			return (NULL);
 		substr[0] = '\0';
 		return (substr);
@@ -34,7 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	else
 		actual_len = len;
 	substr = malloc(actual_len + 1);
-	if (substr == NULL)
+	if (!substr)
 		return (NULL);
 	ft_memmove(substr, (s + start), actual_len);
 	substr[actual_len] = '\0';
