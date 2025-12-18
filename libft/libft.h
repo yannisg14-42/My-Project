@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 17:11:02 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 05:38:45 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 11:28:14 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_memcmp(const void *p1, const void *p2, size_t n);
 
 int	ft_strncmp(const char *str1, const char *str2, size_t n);
 
-int ft_tolower(int c);
+int	ft_tolower(int c);
 
 int ft_toupper(int c);
 

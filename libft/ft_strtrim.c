@@ -40,7 +40,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (new_str);
 }
 /*
- ft_strtrim trim s1 with the char is set that means remove set from both extremities
+ ft_strtrim trim s1 with the char is set
  we first check some edge cases aka if s1 is NULL we return NULL and if s1 is empty we return the dup of an empty str
  now the the first loop is to find the first char for new_str
  we check while s1[i] so we know we don't reach end of s1 and strchr find the first occurence of s1 in set so i point to the first char of new_str

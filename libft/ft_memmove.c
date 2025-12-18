@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:39:14 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 05:19:14 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 11:44:42 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 }
 /*
  ft_memmove works likes ft_memcpy
+ we decrement first to avoid out of bound and because our first starting index is not valid
+ so we decremt first to convert to valid index then we workd with our str
+ if we where to start at n - 1 so already vaild index then we decrement after and work till i >= 0
+ but need to be careful with unsigned because when i = 0, i--makes it wrap around
  except now it checks for overlaps by copying the src first in a temporary array buffer
 */

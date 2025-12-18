@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:40:01 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 04:53:54 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 11:58:20 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ size_t	ft_strlcat(char *dest, const char *src, size_t measure)
 {
 	size_t	i, dest_len, src_len;
 
-	i = 0;
-	dest_len = 0;
 	if (!dest || !src)
 		return (0);
+	i = 0;
+	dest_len = 0;
 	src_len = 0;
 	while (dest[dest_len] && dest_len < measure)
 		dest_len++;

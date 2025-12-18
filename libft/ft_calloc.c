@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 04:23:00 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/18 04:40:49 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 12:10:54 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t nitems, size_t measure)
 	void	*ptr;
 
 	if (nitems == 0 || measure == 0)
-		return (malloc(0));
+		return (malloc(1));
 	if (((size_t)-1) / nitems < measure)
 		return (NULL);
 	total_size = nitems * measure;
@@ -39,4 +39,5 @@ void	*ft_calloc(size_t nitems, size_t measure)
  after geting the total size of the memory we want to allocate we call malloc for it
  need to check if  for faillure if the ptr is NULL we return NULL immediatly
  the bzero helps to zero-initialize the memory block
+ we prefer malloc(1) because with malloc(0) some system might return a valid pointer
 */

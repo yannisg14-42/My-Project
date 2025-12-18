@@ -6,13 +6,14 @@
 #    By: yannis <yannis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/18 02:51:49 by yannis            #+#    #+#              #
-#    Updated: 2025/12/18 04:23:40 by yannis           ###   ########.fr        #
+#    Updated: 2025/12/18 12:34:12 by yannis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+HEADER = libft.h
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -I
 AR = ar rcs
 
 SRCS = ft_atoi.c \
@@ -57,8 +58,9 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiled: $<"
 
 clean:
 	rm -f $(OBJS)
@@ -70,8 +72,10 @@ re: fclean all
 
 .PHONY: all clean fclean re
 # NAME is the name of the final library file
+# NEADER is the name of the .h file so it makes it easier to change it later
 # CC is the compiler to use
 # CFLAGS are all the flags for Warning Errors and Extra warnings
+# the -I explicitly tell the compiler to look in the current directory for headers(does it by default)
 # AR is the archive command to make static library
 # static library is a collection of compliled .o files, bundled together into a single file (libft.a in our case) .a means archive created with ar and contain multiples .o files
 # ar is archive tool, r replace or add files to archive, c create archive if they are not existing and s create an idex for the archive
@@ -83,6 +87,7 @@ re: fclean all
 # $(NAME) is the rule to create the library and depends on all .o files
 # so this command create libft.a from all .o files
 # %.o: %.c is the pattern rule for compiling .c files in .o files
+# the echo command make output clearer (optional)
 # %: wildcar that matches any filename.
 # the rule is simple, just creat any .o files using its corresponding .c files
 # naturally if libft.h changes have to recomplie everything

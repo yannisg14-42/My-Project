@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:38:06 by sgarba            #+#    #+#             */
-/*   Updated: 2025/11/28 18:46:02 by sgarba           ###   ########.fr       */
+/*   Updated: 2025/12/18 12:14:21 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,6 @@ int  ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
-//ft_isdigit will check if a char is a digit
+/*
+ ft_isdigit will check if a char is a digit
+*/

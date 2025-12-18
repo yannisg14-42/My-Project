@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:38:56 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 04:42:41 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 12:13:07 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	to = (unsigned char *)dest;
 	from = (const unsigned char *)src;
 	i = 0;
-	if (!dest || !src)
-		return (NULL);
 	while (i < n)
 	{
 		to[i] = from[i];

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:37:40 by sgarba            #+#    #+#             */
-/*   Updated: 2025/11/28 18:45:52 by sgarba           ###   ########.fr       */
+/*   Updated: 2025/12/18 12:13:41 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,6 @@ int  ft_isalpha(int c)
 {
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
-//ft_isalpha will check if a char is from the alphabet or not
+/*
+ ft_isalpha will check if a char is from the alphabet or not
+*/
