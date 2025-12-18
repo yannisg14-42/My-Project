@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:39:14 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/04 17:09:24 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 04:42:58 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	else
 	{
 		i = n - 1;
-		while (i >= 0)
+		while (i > 0)
 		{
 			to[i] = from[i];
 			i--;
@@ -40,5 +40,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-// ft_memmove works likes ft_memcpy
-// except now it checks for overlaps by copying the src first in a temporary array buffer
+/*
+ ft_memmove works likes ft_memcpy
+ except now it checks for overlaps by copying the src first in a temporary array buffer
+*/

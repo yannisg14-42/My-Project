@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:39:48 by sgarba            #+#    #+#             */
-/*   Updated: 2025/11/28 18:46:27 by sgarba           ###   ########.fr       */
+/*   Updated: 2025/12/18 04:39:29 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_strchr(const char *str, int c)
 		return ((char*)&str[i]);
 	return (NULL);
 }
-// ft_strchr search the first occurence of a char in a str
-// important to also check for '\0'
-// we return a pointer to the first occurence of c
+/*
+ ft_strchr search the first occurence of a char in a str
+ important to also check for '\0'
+ we return a pointer to the first occurence of c
+*/

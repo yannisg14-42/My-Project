@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:46:19 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/18 00:57:54 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 04:44:25 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
-// ft_striteri is also modify the string but the original directly
-// not like ft_strmapi that store the result in a new_str
-// we pass directly the address of each char therefor &s[i]
-// void function so no return
+/*
+ ft_striteri is also modify the string but the original directly
+ not like ft_strmapi that store the result in a new_str
+ we pass directly the address of each char therefor &s[i]
+ void function so no return
+*/

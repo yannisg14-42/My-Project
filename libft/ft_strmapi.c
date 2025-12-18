@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:43:25 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/18 00:59:48 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 04:46:47 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (new_str);
 }
-// ft_strmapi is a function that map a string using another function
-// it iterate through s then for each char it call f with 2 arguments (char index, char)
-// then collect the result and put it in a new string
+/*
+ ft_strmapi is a function that map a string using another function
+ it iterate through s then for each char it call f with 2 arguments (char index, char)
+ then collect the result and put it in a new string
+*/

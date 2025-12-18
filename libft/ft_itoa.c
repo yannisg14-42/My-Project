@@ -6,15 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:42:21 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/05 19:43:07 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 03:52:31 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
-#include "libft.h"
-
-char	*ft_itoa(int n)
-{
-	
-}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:38:43 by sgarba            #+#    #+#             */
-/*   Updated: 2025/11/28 19:39:44 by sgarba           ###   ########.fr       */
+/*   Updated: 2025/12/18 04:42:21 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 {
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	const unsigned char	*str1, *str2;
 	size_t	i;
 
 	str1 = (const unsigned char *)ptr1;
@@ -29,6 +28,8 @@ int	ft_memcmp(const void *ptr1, const void *ptr2, size_t n)
 	}
 	return (0);
 }
-// ft_memcmp will compare 2 memory blocks
-// if they are different it return the difference, else the are both equal and return 0
-// diff < 0 means str1 is biger else str2 is bigger
+/*
+ ft_memcmp will compare 2 memory blocks
+ if they are different it return the difference, else the are both equal and return 0
+ diff < 0 means str1 is biger else str2 is bigger
+*/

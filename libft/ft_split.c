@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:38:37 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/14 17:42:36 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 04:36:52 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static	int	ft_count_word(char const *s, char c)
 
 static	void	ft_free_all(char **array, int n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (i < n)
@@ -80,3 +80,18 @@ char	**ft_split(char const *s, char c)
 	}
 	return (split);
 }
+/*
+ ft_split - Splits a string into array of words using delimiter
+ Example: ft_split("hello world", ' ') → ["hello", "world", NULL]
+ Returns: Array of strings ending with NULL, or NULL if allocation fails
+ ft_count_word - Counts words separated by delimiter 'c'
+ A new word starts when: first char != c OR after a delimiter
+ Example: "hello world" with c=' ' → returns 2
+ ft_free_all - Frees array and all strings in case of allocation failure
+ Prevents memory leaks when ft_substr fails midway
+ ft_split - Main function
+ 1. Count words
+ 2. Allocate array (word_count + 1 for NULL)
+ 3. Extract each word with ft_substr
+ 4. Free everything if any allocation fails
+*/

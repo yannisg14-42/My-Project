@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:40:01 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/04 15:52:16 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 04:53:54 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t measure)
 {
-	size_t	i;
-	size_t	dest_len;
-	size_t	src_len;
+	size_t	i, dest_len, src_len;
 
 	i = 0;
 	dest_len = 0;
+	if (!dest || !src)
+		return (0);
 	src_len = 0;
 	while (dest[dest_len] && dest_len < measure)
 		dest_len++;
@@ -39,8 +39,10 @@ size_t	ft_strlcat(char *dest, const char *src, size_t measure)
 	return (dest_len + src_len);
 	
 }
-// ft_strlcat purpose is to safely concatenate str into a fixe siz dest buffer
-// first I get dest_len with the condition that it should be less than siz so i don't read past boundary
-// then I get src_len
-// we early return the total that shoulb habe been concat if dest_len >= siz because it would mean the dest buffer is overflown so it should not copy
-// else we from src to dest up siz - 1 to reserve space for '\0' the we add at the end of the loop and we return the total len
+/*
+ ft_strlcat purpose is to safely concatenate str into a fixe siz dest buffer
+ first I get dest_len with the condition that it should be less than siz so i don't read past boundary
+ then I get src_len
+ we early return the total that shoulb habe been concat if dest_len >= siz because it would mean the dest buffer is overflown so it should not copy
+ else we from src to dest up siz - 1 to reserve space for '\0' the we add at the end of the loop and we return the total len
+*/
