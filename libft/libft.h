@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 17:11:02 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/05 20:01:12 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 05:38:45 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
-char	*ft_tolower(char *str);
-
-char	*ft_toupper(char *str);
-
 int	ft_atoi(const char *str);
 
 int	ft_isalnum(int c);
@@ -54,6 +50,10 @@ int	ft_isprint(int c);
 int	ft_memcmp(const void *p1, const void *p2, size_t n);
 
 int	ft_strncmp(const char *str1, const char *str2, size_t n);
+
+int ft_tolower(int c);
+
+int ft_toupper(int c);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 

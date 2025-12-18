@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:46:19 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/18 04:44:25 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 05:27:35 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	if (!s || !f)
 		return ;
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		f(i, &s[i]);
 		i++;

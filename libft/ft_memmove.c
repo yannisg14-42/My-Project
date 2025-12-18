@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:39:14 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 04:42:58 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 05:19:14 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*to;
-	const unsigned char	*from;
+	unsigned char	*where;
+	const unsigned char	*origin;
 	size_t	i;
 
-	to = (unsigned char *)dest;
-	from = (const unsigned char *)src;
+	where = (unsigned char *)dest;
+	origin = (const unsigned char *)src;
 	if (dest <= src)
 	{
 		i = 0;
 		while (i < n)
 		{
-			to[i] = from[i];
+			where[i] = origin[i];
 			i++;
 		}
 	}
 	else
 	{
-		i = n - 1;
+		i = n;
 		while (i > 0)
 		{
-			to[i] = from[i];
 			i--;
+			where[i] = origin[i];
 		}
 	}
 	return (dest);

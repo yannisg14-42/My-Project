@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:38:25 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 04:41:59 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 05:16:41 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(void *ptr, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (str[i] == c)
+		if (str[i] == (unsigned char)c)
 			return (&str[i]);
 		i++;
 	}

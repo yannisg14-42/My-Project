@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:33:24 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 04:40:21 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 05:14:59 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	ft_bzero(void *ptr, size_t n)
 {
 	size_t	i;
- 	char	*str;
- 
-  	str = (char *)ptr; // how to cast the void pointer
-  	i = 0;
-  	while (i < n)
-  	{
-    	str[i] = '\0';
-    	i++;
-  	}
+	char	*str;
+
+	str = (char *)ptr; // how to cast the void pointer
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
 }
 /*
  ft_bzero place n zero-valued bytes in the area pointed to by s

@@ -6,27 +6,19 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:47:11 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 04:49:58 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 05:35:38 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char  *ft_toupper(char *str)
+int	ft_toupper(int c)
 {
-  size_t  i;
-
-  i = 0;
-  while (str[i])
-  {
-    if (str[i] >= 'a' && str[i] <= 'z')
-      str[i] = str[i] - 32;
-    i++;
-  }
-  return (str);
+	if( c >= 'a' && c <= 'z')
+		return (c -32);
+	return (c);
 }
 /*
- ft_toupper will read the entire string except '\0'
- while reading if it encounter a lowercase char it convert it uppercase
+ ft_toupper will converts lowercase char to their uppercase
  the conversion is done by substracting 32 because in ASCII lowercase char are 32 higher than uppercase
 */

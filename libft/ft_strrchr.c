@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:46:42 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 04:48:07 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/18 05:26:39 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ char	*ft_strrchr(char *str, int c)
 	i = str_len - 1;
 	while (i > 0)
 	{
-		if (str[i] == c)
-			return (&str[i]);
 		i--;
+		if (str[i] == (char)c)
+			return (&str[i]);
 	}
+	if (str[0] == (char)c)
+		return (&str[0]);
 	return (NULL);
 }
 /*
