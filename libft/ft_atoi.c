@@ -6,16 +6,17 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:37:07 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 11:17:36 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/19 18:47:01 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int  ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	size_t  i;
-	int  sign, number;
+	size_t	i;
+	int		sign;
+	int		number;
 
 	i = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
@@ -38,6 +39,9 @@ int  ft_atoi(const char *str)
 /*
  ft_atoi should check for any type of space according to isspace
  size_t guaranteed to hold any array index and is not signed
- after that the sign variable that define the polarity will always be multiplied by -1 when we encounter a '-'
- then finaly the last formula get all the number in the string by converting the char into an int and adding to the previous number multiplied by 10
+ after that the sign variable that define 
+ the polarity will always be multiplied by -1 when we encounter a '-'
+ then finaly the last formula get all the number in 
+ the string by converting the char into an int 
+ and adding to the previous number multiplied by 10
 */

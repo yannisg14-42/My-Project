@@ -6,14 +6,14 @@
 #    By: yannis <yannis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/18 02:51:49 by yannis            #+#    #+#              #
-#    Updated: 2025/12/18 12:34:12 by yannis           ###   ########.fr        #
+#    Updated: 2025/12/19 15:56:34 by yannis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 HEADER = libft.h
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -I
+CFLAGS = -Wall -Werror -Wextra -I.
 AR = ar rcs
 
 SRCS = ft_atoi.c \
@@ -25,6 +25,15 @@ SRCS = ft_atoi.c \
 		ft_isdigit.c \
 		ft_isprint.c \
 		ft_itoa.c \
+		ft_lstadd_back.c \
+		ft_lstadd_front.c \
+		ft_lstclear.c \
+		ft_lstdelone.c \
+		ft_lstiter.c \
+		ft_lstlast.c \
+		ft_lstmap.c \
+		ft_lstnew.c \
+		ft_lstsize.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_memcpy.c \

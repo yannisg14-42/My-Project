@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:38:37 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/18 04:36:52 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/19 19:20:47 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static	int	ft_count_word(char const *s, char c)
+static	int	count_word(char const *s, char c)
 {
 	int		new_word_start;
 	size_t	i;
@@ -34,7 +34,7 @@ static	int	ft_count_word(char const *s, char c)
 	return (new_word_start);
 }
 
-static	void	ft_free_all(char **array, int n)
+static	void	free_all(char **array, int n)
 {
 	int	i;
 
@@ -47,15 +47,35 @@ static	void	ft_free_all(char **array, int n)
 	free(array);
 }
 
+static size_t	skip_delimiter(char const *s, size_t i, char c)
+{
+	while (s[i] == c)
+		i++;
+	return (i);
+}
+
+static char	*extract_word(char const *s, size_t *i, char c)
+{
+	size_t	start;
+	char	*word;
+
+	start = *i;
+	while (s[*i] && s[*i] != c)
+		(*i)++;
+	word = ft_substr(s, start, (*i - start));
+	return (word);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		word_count;
-	size_t	i, j, start;
+	size_t	i;
+	size_t	j;
 
 	if (!s)
 		return (NULL);
-	word_count = ft_count_word (s, c);
+	word_count = count_word (s, c);
 	split = ft_calloc((word_count + 1), sizeof(char *));
 	if (!split)
 		return (NULL);
@@ -63,19 +83,12 @@ char	**ft_split(char const *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		while (s[i] == c)
-			i++;
+		i = skip_delimiter(s, i, c);
 		if (!s[i])
-			break;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		split[j] = ft_substr(s, start, (i - start));
+			break ;
+		split[j] = extract_word(s, &i, c);
 		if (!split[j])
-		{
-			ft_free_all(split, j);
-			return (NULL);
-		}
+			return (free_all(split, j), NULL);
 		j++;
 	}
 	return (split);
@@ -84,11 +97,16 @@ char	**ft_split(char const *s, char c)
  ft_split - Splits a string into array of words using delimiter
  Example: ft_split("hello world", ' ') → ["hello", "world", NULL]
  Returns: Array of strings ending with NULL, or NULL if allocation fails
- ft_count_word - Counts words separated by delimiter 'c'
+ count_word - Counts words separated by delimiter 'c'
  A new word starts when: first char != c OR after a delimiter
  Example: "hello world" with c=' ' → returns 2
- ft_free_all - Frees array and all strings in case of allocation failure
+ free_all - Frees array and all strings in case of allocation failure
  Prevents memory leaks when ft_substr fails midway
+ skip_delimiter skip all consecutive delimiter and return
+ the position of the next char
+ extract_word extract a word starting from position i
+ since we are in a str inside a str we dereference i and
+ return the to be extracted with ft_substr
  ft_split - Main function
  1. Count words
  2. Allocate array (word_count + 1 for NULL)

@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 16:39:42 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/18 04:44:02 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/19 18:31:10 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,17 @@ char	*ft_strdup(const char *str)
 	return (dup_str);
 }
 /*
- ft_strdup is used to duplicate a str, it should return a ptr to a null-terminated dup_str which is the duplicate of str
+ ft_strdup is used to duplicate a str, it should return 
+ a ptr to a null-terminated dup_str which is the duplicate of str
  the first step is to get the len of str so we know how many bytes we need
- since ft_strlen get the len without the '\0', when we allocate memory for dup_str with malloc we add one more byte
- like always if we cannot provide the requested memory we return NULL to avoid crash
+ since ft_strlen get the len without the '\0', when 
+ we allocate memory for dup_str with malloc we add one more byte
+ like always if we cannot provide the requested 
+ memory we return NULL to avoid crash
  then we use ft_memcpy to transfer from str to dup_str
- ft_memcpy is fine here instead of ft_memmove since there will be no overlap in the function
+ ft_memcpy is fine here instead of ft_memmove since 
+ there will be no overlap in the function
  and finally we return the new str
- tldr ft_strdup handles size calculation, memory allocation and data copying
+ tldr ft_strdup handles size calculation, 
+ memory allocation and data copying
 */
