@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 19:38:37 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/19 19:20:47 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:41:08 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,27 @@
 
 static	int	count_word(char const *s, char c)
 {
-	int		new_word_start;
+	int		count;
+	int		in_word;
 	size_t	i;
 
-	i = 0;
-	new_word_start = 0;
 	if (!s)
 		return (0);
-	while (s[i + 1])
+	i = 0;
+	count = 0;
+	in_word = 0;
+	while (s[i])
 	{
-		if (s[0] != c && s[0] != '\0')
-			new_word_start += 1;
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-			new_word_start += 1;
+		if (s[i] != c && !in_word)
+		{
+			in_word = 1;
+			count++;
+		}
+		else if (s[i] == c)
+			in_word = 0;
 		i++;
 	}
-	return (new_word_start);
+	return (count);
 }
 
 static	void	free_all(char **array, int n)
@@ -93,23 +98,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (split);
 }
-/*
- ft_split - Splits a string into array of words using delimiter
- Example: ft_split("hello world", ' ') → ["hello", "world", NULL]
- Returns: Array of strings ending with NULL, or NULL if allocation fails
- count_word - Counts words separated by delimiter 'c'
- A new word starts when: first char != c OR after a delimiter
- Example: "hello world" with c=' ' → returns 2
- free_all - Frees array and all strings in case of allocation failure
- Prevents memory leaks when ft_substr fails midway
- skip_delimiter skip all consecutive delimiter and return
- the position of the next char
- extract_word extract a word starting from position i
- since we are in a str inside a str we dereference i and
- return the to be extracted with ft_substr
- ft_split - Main function
- 1. Count words
- 2. Allocate array (word_count + 1 for NULL)
- 3. Extract each word with ft_substr
- 4. Free everything if any allocation fails
-*/

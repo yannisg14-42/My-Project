@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:40:01 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/19 18:41:50 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:42:44 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t measure)
 	while (src[src_len])
 		src_len++;
 	if (dest_len >= measure)
-		return (dest_len + src_len);
+		return (measure + src_len);
 	else
 	{
 		while (src[i] && (dest_len + i < measure - 1))
@@ -40,15 +40,3 @@ size_t	ft_strlcat(char *dest, const char *src, size_t measure)
 	dest[dest_len + i] = '\0';
 	return (dest_len + src_len);
 }
-/*
- ft_strlcat purpose is to safely concatenate str 
- into a fixe measure dest buffer
- first I get dest_len with the condition 
- that it should be less than measure so i don't read past boundary
- then I get src_len
- we early return the total that shoulb have been concat 
- if dest_len >= siz because it would mean the dest buffer 
- is overflown so it should not copy
- else we from src to dest up measure - 1 to reserve space for '\0' 
- the we add at the end of the loop and we return the total len
-*/

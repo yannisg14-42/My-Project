@@ -6,13 +6,13 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:46:42 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/19 18:32:01 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:50:41 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strrchr(char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	size_t	str_len;
 	size_t	i;
@@ -31,9 +31,3 @@ char	*ft_strrchr(char *str, int c)
 	}
 	return (NULL);
 }
-/*
- ft_strrchr find the last occurence of a char c
- first we get the len then check if c == '\0' 
- return a pointer to this address with index str_len
- after we do a backward check to search for the last occurence
-*/

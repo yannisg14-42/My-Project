@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 11:41:21 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/19 18:35:54 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:39:13 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,3 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	}
 	*lst = NULL;
 }
-/*
- ft_lstclear delete the entire list from given node onward
- we loop through all the nodes freeing each one
- before deleting current node we have to save the 
- current pointer thus the use of temp
- otherwise we would loose access of the complete list
- and we set lst to NULL at the end to signal it is empty
-*/

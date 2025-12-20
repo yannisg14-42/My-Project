@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:37:40 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/19 18:23:41 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:37:25 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,3 @@ int	ft_isalpha(int c)
 {
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
-/*
- ft_isalpha will check if a char is from the alphabet or not
-*/

@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:37:48 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/18 12:14:09 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:37:35 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,3 @@ int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }
-/*
- ft_isacii check if a char is from the ASCII table or not
-*/

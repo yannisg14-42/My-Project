@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 11:47:55 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/19 18:42:35 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:39:43 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_list);
 }
-/*
- ft_lstmap create a new list by changing 
- each node' content with a function f
- the original list shall not change since we are just creating 
- a copy modified by f
- for each node in the original list we transform content 
- using our f
- then we create a new node with the modified content
- afterward we add the new_node with the new_content to the new_list
- Should any allocation fail we free the failed modified content
- then free the entire neew list
- and finally return NULL, del will handle the clean up upon failure
-*/

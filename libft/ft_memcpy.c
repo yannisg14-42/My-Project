@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:38:56 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/19 18:05:14 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:40:21 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const unsigned char	*origin;
 	size_t				i;
 
+	if (!dest && !src)
+		return (NULL);
+	if (n == 0)
+		return (dest);
 	where = (unsigned char *)dest;
 	origin = (const unsigned char *)src;
 	i = 0;
@@ -28,7 +32,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-/*
- ft_memcpy copy n bytes from dest to src
- undefined behaviour if both str overlap (memcpy doesn't check for it)
-*/

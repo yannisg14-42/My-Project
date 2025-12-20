@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 17:11:02 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/19 18:48:06 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:55:04 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 char	*ft_strnstr(const char *str, const char *sub_str, size_t n);
 
-char	*ft_strrchr(char *str, int c);
+char	*ft_strrchr(const char *str, int c);
 
 char	*ft_strtrim(char const *s1, char const *set);
 
@@ -91,7 +91,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-void	*ft_memchr(void *ptr, int c, size_t n);
+void	*ft_memchr(const void *ptr, int c, size_t n);
 
 void	*ft_memcpy(void *to, const void *from, size_t n);
 

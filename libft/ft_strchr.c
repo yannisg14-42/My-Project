@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:39:48 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/19 18:01:01 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:41:17 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,3 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)&str[i]);
 	return (NULL);
 }
-/*
- ft_strchr search the first occurence of a char in a str
- important to also check for '\0'
- we return a pointer to the first occurence of c
-*/

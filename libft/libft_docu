@@ -1,0 +1,404 @@
+/*
+ ft_atoi should check for any type of space according to isspace
+ size_t guaranteed to hold any array index and is not signed
+ after that the sign variable that define 
+ the polarity will always be multiplied by -1 when we encounter a '-'
+ then finaly the last formula get all the number in 
+ the string by converting the char into an int 
+ and adding to the previous number multiplied by 10
+*/
+
+/*
+ ft_bzero place n zero-valued bytes in the area pointed to by s
+ (data type) ptr is how to cast a void ptr
+ void *s means generic pointer, so it can point to any type of variable
+ n is the number of bytes to be set to '\0'
+ since ft_bzero place the'\0' at the begining of str, 
+ printf treat it as an empty str therefore no ouptput
+*/
+
+/*
+ ft_calloc allocate the request memory and return a pointer to it.
+ nitems number of element to be allocated 
+ and measure is the size of each element
+ first we check if one of the argument is 0 we return a unique freeable ptr
+ then we check for overflow if it is the case we return NULL, 
+ (size_t)-1 is the Max Value of any unsigned type because 
+ C guarantees that casting a negative int (-1) 
+ to an unsigned type results in the maximum representable value for that type
+ after geting the total size of the memory we want 
+ to allocate we call malloc for it
+ need to check if  for faillure if the ptr is NULL 
+ we return NULL immediatly
+ the bzero helps to zero-initialize the memory block
+ we prefer malloc(1) because with malloc(0) some system 
+ might return a valid pointer
+*/
+
+/*
+ ft_isalnum will check if a char is alphanumeric
+ this way of writing the function makes it act like 
+ a booloean type function
+*/
+
+/*
+ ft_isalpha will check if a char is from the alphabet or not
+*/
+
+/*
+ ft_isacii check if a char is from the ASCII table or not
+*/
+
+/*
+ ft_isdigit will check if a char is a digit
+*/
+
+/*
+ ft_isprint check if a char is printable according to the ASCII table
+*/
+
+/*
+ ft_itoa means int to array, it receive an int as parameter and 
+ turn it into char to put it in an array
+ we turn our int n into long nb to avoid overflow
+ i first procceed to write and helper that count all digit
+ in case our n is 0 we just return(1), because we have 1 digit + the \0 later
+ returning 1 help allocate enough space
+ When we have negative number we increment 1 time to save for '-' 
+ then turn nb to positive
+ and when n != 0 we keep /10 to get the next digit, 
+ count++ and return (count)
+ Now that we have the helper, in ft_itoa we simply call it 
+ to know how much space we must allocate
+ we assign int n to long nb in to avoid overflow
+ if nb < 0 we set the first char to '-' then turn it into positive
+ else we set i to first valid char digit_total - 1
+ then for each %10 + '0' to turn int into char, 
+ then /10 to get next digit and we keep decrementing 
+*/
+
+/*
+ ft_lstadd_back adds a node at the end of the list
+ it takes a double pointer to handle empty list
+ if the list is empty we make a new head
+ but if not we find the last node and link it to new
+ example: [A] -> [B] -> [new] -> NULL
+*/
+
+/*
+ ft_lstadd_front add a node at the begining of the lst
+ it takes a double ptr because we modify
+  where the head (first nod of the linked list) point
+ first we make new->next point to the cureent head
+ then we updat the head so it point to a new node
+ example: [new] -> [old_head] -> [B] -> NULL
+*/
+
+/*
+ ft_lstclear delete the entire list from given node onward
+ we loop through all the nodes freeing each one
+ before deleting current node we have to save the 
+ current pointer thus the use of temp
+ otherwise we would loose access of the complete list
+ and we set lst to NULL at the end to signal it is empty
+*/
+
+/*
+ ft_delone delete and free one node by using def() to free the content
+ then we free the node itself
+ this function doesn't free the next node
+*/
+
+/*
+ ft_lstiter iterates through the list and apply 
+ a function f to each node's content
+ We shall not modify the lst structure, just the content
+*/
+
+/*
+ ft_lstlast return a pointer to the last node in the list
+ we recognize the last node by the fact that next == NULL
+ we travers until finding node where nex is NULL
+ and return NULL if list is empty
+*/
+
+/*
+ ft_lstmap create a new list by changing 
+ each node' content with a function f
+ the original list shall not change since we are just creating 
+ a copy modified by f
+ for each node in the original list we transform content 
+ using our f
+ then we create a new node with the modified content
+ afterward we add the new_node with the new_content to the new_list
+ Should any allocation fail we free the failed modified content
+ then free the entire neew list
+ and finally return NULL, del will handle the clean up upon failure
+*/
+
+/*
+ ft_lstnew create a new node for the linked list by allocating memory with malloc
+ then we initiaze content to new_node and new set to a standalone node (NULL)
+ then we return a pointer to new_node or NULL if malloc fails
+ -> is an operator to access members of a struct through a pointer
+ the long way to access content would be (*node).content 
+ to dereference the pointer 
+ (*node) to access member .content and (*node).next same to access next 
+ .  for actual struct and -> for pointer to struct
+*/
+
+/*
+ ft_lstsize simply counts the number of node in the list
+ we go through lst from head to NULL by incrementing count++
+ and should return 0 if the list is empty
+*/
+
+/*
+ ft_memchr search a block of memory for a specific
+  byte regardless of it's content
+ since it searches raw memory the search must not stop 
+ when encountering '\0' but continue checking 
+ up to n bytes that is why we don't need the condtion (str[i] != \0)
+ str[i] == str[c] is wrong because I want just want to compare 
+ the byte at the current i position against c
+ str[i] == str[c] means I am trying to access the memory location
+ at str plus an offset equal to the value of the char I am searching
+*/
+
+/*
+ ft_memcmp will compare 2 memory blocks
+ if they are different it return the 
+ difference, else the are both equal and return 0
+ diff < 0 means str1 is biger else str2 is bigger
+*/
+
+/*
+ ft_memcpy copy n bytes from dest to src
+ undefined behaviour if both str overlap (memcpy doesn't check for it)
+*/
+
+/*
+ ft_memmove works likes ft_memcpy
+ we decrement first to avoid out of bound and because our 
+ first starting index is not valid
+ so we decremt first to convert to valid index then we workd with our str
+ if we where to start at n - 1 so already vaild index then we 
+ decrement after and work till i >= 0
+ but need to be careful with unsigned because when i = 0, i--makes it wrap around
+ except now it checks for overlaps by copying the src 
+ first in a temporary array buffer
+*/
+
+/*
+ ft_memset set the firsts n bytes of the memory bloc pointed by p to 'c'
+*/
+
+/*
+ ft_putchar_fd put a char in the file descriptor
+*/
+
+/*
+ ft_putendl_fd works like ft_putstr_fd but add a \n at the end
+*/
+
+/* ft_putnbr_fd write a number to the file descriptor
+ we pass n to long to handle INT_MIN
+ and then use recursion to get all digits and % 10 + '0' to convert in char
+*/
+
+/*
+ ft_putstr_fd works like ft_putchar_fd but this time with a str
+*/
+
+/*
+ ft_split - Splits a string into array of words using delimiter
+ Example: ft_split("hello world", ' ') → ["hello", "world", NULL]
+ Returns: Array of strings ending with NULL, or NULL if allocation fails
+ count_word - Counts words separated by delimiter 'c'
+ A new word starts when: first char != c OR after a delimiter
+ Example: "hello world" with c=' ' → returns 2
+ free_all - Frees array and all strings in case of allocation failure
+ Prevents memory leaks when ft_substr fails midway
+ skip_delimiter skip all consecutive delimiter and return
+ the position of the next char
+ extract_word extract a word starting from position i
+ since we are in a str inside a str we dereference i and
+ return the to be extracted with ft_substr
+ ft_split - Main function
+ 1. Count words
+ 2. Allocate array (word_count + 1 for NULL)
+ 3. Extract each word with ft_substr
+ 4. Free everything if any allocation fails
+*/
+
+/*
+ ft_strchr search the first occurence of a char in a str
+ important to also check for '\0'
+ we return a pointer to the first occurence of c
+*/
+
+/*
+ ft_strdup is used to duplicate a str, it should return 
+ a ptr to a null-terminated dup_str which is the duplicate of str
+ the first step is to get the len of str so we know how many bytes we need
+ since ft_strlen get the len without the '\0', when 
+ we allocate memory for dup_str with malloc we add one more byte
+ like always if we cannot provide the requested 
+ memory we return NULL to avoid crash
+ then we use ft_memcpy to transfer from str to dup_str
+ ft_memcpy is fine here instead of ft_memmove since 
+ there will be no overlap in the function
+ and finally we return the new str
+ tldr ft_strdup handles size calculation, 
+ memory allocation and data copying
+*/
+
+/*
+ ft_striteri is also modify the string but the original directly
+ not like ft_strmapi that store the result in a new_str
+ we pass directly the address of each char therefor &s[i]
+ void function so no return
+*/
+
+/*
+ ft_strjoin should join 2 cosnt str
+ the firsts if loop check for no segfault when we pass a 
+ NULL pointer by reassigning them to an empty string 
+ literal if one of them is NULL
+ the next section help get the exact size needed for new_str
+ after that we allocate enough space with malloc and the 
+ total_len, +1 for the '\0', also checking if malloc fail too return NULL
+ then we copy two to append the 2 str
+ first copy from s1 to new_str with the len of s1
+ then for the second copy we use new_str + s1_len to point 
+ after s1 so we can apend without overlap at the end of s1
+ and finally we place the '\0' at the end to have a proper C str
+*/
+
+/*
+ ft_strlcat purpose is to safely concatenate str 
+ into a fixe measure dest buffer
+ first I get dest_len with the condition 
+ that it should be less than measure so i don't read past boundary
+ then I get src_len
+ we early return the total that shoulb have been concat 
+ if dest_len >= siz because it would mean the dest buffer 
+ is overflown so it should not copy
+ else we from src to dest up measure - 1 to reserve space for '\0' 
+ the we add at the end of the loop and we return the total len
+*/
+
+/*
+ ft_strlcpy should be more safer and less error-prone 
+ alternative to strcpy and strncpy
+ first safety check to avoid dereferencing a NULL pointer
+ prevent buffer overflows by taking the full size 
+ of dest as an argument ensuring it never writes past that limit
+ it return the number of char it tried to copy which is src_len
+ that is why we get first src_len and then 
+ copy up to n - 1 char and we terminate with the '\0'
+*/
+
+/*
+ ft_strlen keep incrementing in the string and stop at the '\0'
+ then at the end return an integer i that is the length of the string
+*/
+
+/*
+ ft_strmapi is a function that map 
+ a string using another function
+ it iterate through s then for each char it call f with 2 arguments 
+ (char index, char)
+ then collect the result and put it in a new string
+*/
+
+/*
+ ft_strncmp should compare 2 str limited to a specified 
+ maximum number of char (n)
+ the while condition ensure that at most n char are compared
+ if the str are different we return the diff
+ we enter the else if block means the previous condition is 
+ false and both str are equal
+ the second check is the check that both string end at 
+ the same spot when they are equal
+*/
+
+/*
+ ft_strnstr should locate a sub_str inside a str
+ first we check if the sub_str is empty just return str
+ if not  we loop through str find sub_str then 
+ loop through it and return we we find the end of sub_str
+ if nothing is found we return NULL
+ we cast the return to (char *) to tell the computer 
+ "sure str was passed as const but I still want to return a non-const pointer"
+ j = 0 in the loop because each iteration of outer loop checks 
+ if sub_str start at position i in str
+ we need to check the entire sub_str from the begining each 
+ time so J must start at 0 each time
+*/
+
+/*
+ ft_strrchr find the last occurence of a char c
+ first we get the len then check if c == '\0' 
+ return a pointer to this address with index str_len
+ after we do a backward check to search for the last occurence
+*/
+
+/*
+ ft_strtrim trim s1 with the char is set
+ we first check some edge cases aka if s1 is NULL we return 
+ NULL and if s1 is empty we return the dup of an empty str
+ now the the first loop is to find the first char for new_str
+ we check while s1[i] so we know we don't reach end of s1 and 
+ strchr find the first occurence of s1 in set so i 
+ point to the first char of new_str
+ the second loop is to find tje last chae in new_str
+ we initialize j to the last char of s1 with strlen(s1)-1
+ j >= i is for the backward loop so we don't cross starting 
+ boundary and strchr find the first occurence of
+ the end char in set  and now j point to the last char in new_str
+ i <= j means we found the segment  in new_str and the correct 
+ inclusive len is j-i+1, if i>j when full trimmed 
+ then the len is 0 so no copy
+ then we allocate enlugh space since we have 
+ the len and +1 byte 
+ for the \0, we also chaeck if allocation fail we return NULL
+ memmove does the copying in new_str from the starting point of the 
+ first char to keep  which is s1+i 
+ and we place the \0 at the end to have a proper C str
+*/
+
+/*
+ ft_substr creat a new str that has only 
+ a specified segment of s by handling 3 main issues
+ boundary check, length calculation and 
+ how to allocate-copy-terminate the new str
+ the first if loop handle the bad start if it is greater 
+ than len then we return an empty str
+ after that we must determinate the actual_len of substr 
+ since len is just the maximum size allowed, (s_len - start) 
+ is the remaining char from start until end of substr
+ if the requested len is less than the remaining char then 
+ we set actual_len to len
+ else if the request len is greater than the remaining char, 
+ we cannot go past len so set it to s_len - start
+ when we have the actual_len of substr we can allocate memory 
+ for it with malloc with 1 extra byte for '\0'
+ then we use ft_memmove to copy from s + start to substr, 
+ s + start since this hte pointer to the begining of substr in s
+ and finaly we place the '\0' at the end since the char 
+ are indexed from 0 to actual_len - 1 since a C string must end with the '\0'
+*/
+
+/*
+ ft_lower convert an uppercase char to its lowercase
+ if we encounter an uppercase char it is converted to lowercase
+ the conversion is done by adding 32 because in ASCII 
+ uppercase char are 32 lower than lowercase
+*/
+
+/*
+ ft_toupper will converts lowercase char to their uppercase
+ the conversion is done by substracting 32 
+ because in ASCII lowercase char are 32 higher than uppercase
+*/

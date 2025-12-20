@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:37:07 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/19 18:47:01 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:36:22 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * number);
 }
-/*
- ft_atoi should check for any type of space according to isspace
- size_t guaranteed to hold any array index and is not signed
- after that the sign variable that define 
- the polarity will always be multiplied by -1 when we encounter a '-'
- then finaly the last formula get all the number in 
- the string by converting the char into an int 
- and adding to the previous number multiplied by 10
-*/

@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 10:06:02 by yannis            #+#    #+#             */
-/*   Updated: 2025/12/19 16:57:21 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:39:58 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (count);
 }
-/*
- ft_lstsize simply counts the number of node in the list
- we go through lst from head to NULL by incrementing count++
- and should return 0 if the list is empty
-*/

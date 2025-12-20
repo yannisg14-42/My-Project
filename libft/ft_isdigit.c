@@ -6,7 +6,7 @@
 /*   By: yannis <yannis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 16:38:06 by sgarba            #+#    #+#             */
-/*   Updated: 2025/12/19 18:18:07 by yannis           ###   ########.fr       */
+/*   Updated: 2025/12/20 11:37:43 by yannis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,3 @@ int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
-/*
- ft_isdigit will check if a char is a digit
-*/
