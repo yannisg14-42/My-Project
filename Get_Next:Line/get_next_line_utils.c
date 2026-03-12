@@ -73,25 +73,29 @@ char    *ft_shift_buff(char *buff, size_t newline_position)
 char    *ft_append_buff(char *buff, char *tmp_buff)
 {
     char    *fullbuff;
-    size_t  fullbuff_len;
+    size_t  bufflen;
+    size_t  tmp_bufflen;
     size_t  i;
 
-    fullbuff_len = ft_strlen(buff) + ft_strlen(tmp_buff);
-    fullbuff = malloc(fullbuff_len + 1);
-    i = 0;
-    j = ft_strlen(buff) + i;
+    buff_len = 0;
+    if (buff)
+        bufflen = ft_strlen(buff);
+    tmp_bufflen = ft_strlen(tmp_buff);
+    fullbuff = malloc((bufflen + tmp_bufflen) + 1);
     if (!fullbuff)
         return (NULL);
-    while(buff[i])
+    i = 0;
+    while (i < bufflen)
     {
         fullbuff[i] = buff[i];
         i++;
     }
-    while(tmp_buff[j])
+    i = 0;
+    while (i < tmp_bufflen)
     {
-        fullbuff[i] = tmp_buff[j];
-        j++;
+        fullbuff[bufflen + i] = tmp_buff[i];
+        i++;
     }
-    fullbuff[fullbuff_len + 1] = '\0';
+    fullbuff[bufflen + tmp_bufflen] = '\0';
     return (fullbuff);
 }
