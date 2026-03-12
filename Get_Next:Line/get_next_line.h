@@ -12,6 +12,9 @@ char    *ft_extract_new_line(char *buff, size_t newline_position);
 
 char    *ft_shift_buff(char *buff, size_t newline_position);
 
+char    *ft_append_buff(char *buff, char *tmp_buff, size_t tmp_size);
+
 char    *get_next_line(int fd);
+
 
 #endif
