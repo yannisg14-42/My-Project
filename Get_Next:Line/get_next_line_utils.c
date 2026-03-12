@@ -77,7 +77,7 @@ char    *ft_append_buff(char *buff, char *tmp_buff)
     size_t  tmp_bufflen;
     size_t  i;
 
-    buff_len = 0;
+    bufflen = 0;
     if (buff)
         bufflen = ft_strlen(buff);
     tmp_bufflen = ft_strlen(tmp_buff);
@@ -99,3 +99,4 @@ char    *ft_append_buff(char *buff, char *tmp_buff)
     fullbuff[bufflen + tmp_bufflen] = '\0';
     return (fullbuff);
 }
+
