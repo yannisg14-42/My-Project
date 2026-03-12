@@ -1,0 +1,17 @@
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+#include <stddef.h>
+#include <stdlib.h>
+
+size_t    ft_strlen(const char *s);
+
+void    *ft_memchr(const void *ptr, int c, size_t n);
+
+char    *ft_extract_new_line(char *buff, size_t newline_position);
+
+char    *ft_shift_buff(char *buff, size_t newline_position);
+
+char    *get_next_line(int fd);
+
+#endif
