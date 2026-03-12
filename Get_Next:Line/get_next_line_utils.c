@@ -70,18 +70,16 @@ char    *ft_shift_buff(char *buff, size_t newline_position)
 
 }
 /* Apend tmp buff to static buff*/
-char    *ft_append_buff(char *buff, char *tmp_buff)
+char    *ft_append_buff(char *buff, char *tmp_buff, size_t tmp_size)
 {
     char    *fullbuff;
     size_t  bufflen;
-    size_t  tmp_bufflen;
     size_t  i;
 
     bufflen = 0;
     if (buff)
         bufflen = ft_strlen(buff);
-    tmp_bufflen = ft_strlen(tmp_buff);
-    fullbuff = malloc((bufflen + tmp_bufflen) + 1);
+    fullbuff = malloc(bufflen + tmp_size + 1);
     if (!fullbuff)
         return (NULL);
     i = 0;
@@ -91,12 +89,13 @@ char    *ft_append_buff(char *buff, char *tmp_buff)
         i++;
     }
     i = 0;
-    while (i < tmp_bufflen)
+    while (i < tmp_size)
     {
         fullbuff[bufflen + i] = tmp_buff[i];
         i++;
     }
-    fullbuff[bufflen + tmp_bufflen] = '\0';
+    fullbuff[bufflen + tmp_size] = '\0';
     return (fullbuff);
 }
+
 
