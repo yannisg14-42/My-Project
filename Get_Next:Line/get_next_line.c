@@ -27,11 +27,12 @@ char  *get_next_line(int fd)
   }
   if (newline_ptr)
   {
-    line = ft_extract_new_line(static_buff, newline_ptr);
-    static_buff = ft_shift_buff(static_buff, newline_ptr);
+    line = ft_extract_new_line(static_buff, (size_t)((char *)newline_ptr - static_buff));
+    static_buff = ft_shift_buff(static_buff, (size_t)((char *)newline_ptr - static_buff));
   }
   return (line);
 }
+
 
 
 
