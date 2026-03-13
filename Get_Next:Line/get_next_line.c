@@ -24,9 +24,12 @@ char  *get_next_line(int fd)
   ft_memchr(static_buff, \n, ft_strlen(static_buff));
   if (newline_position)
   {
-    ft_extract_line(
-  
+    ft_extract_new_line(static_buff, newline_position);
+    ft_shift_buff(static_buff, newline_position);
+  }
+  return (line);
 }
+
 
 
 
