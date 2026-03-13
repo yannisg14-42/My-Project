@@ -53,7 +53,7 @@ char    *ft_shift_buff(char *static_buff, size_t newline_position)
     size_t  j;
     size_t  after_newline_position;
 
-    after_newline_position = ft_strlen(buff) - (newline_position + 1);
+    after_newline_position = ft_strlen(static_buff) - (newline_position + 1);
     after_newline = malloc(after_newline_position + 1);
     i = newline_position + 1;
     j = 0;
@@ -92,9 +92,10 @@ char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
     i = 0;
     while (i < tmp_size)
     {
-        full_buff[bufflen + i] = tmp_buff[i];
+        full_buff[static_bufflen + i] = tmp_buff[i];
         i++;
     }
     full_buff[static_bufflen + tmp_size] = '\0';
     return (full_buff);
 }
+
