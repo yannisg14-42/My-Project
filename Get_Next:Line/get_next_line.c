@@ -10,6 +10,7 @@ char  *get_next_line(int fd)
   void         *newline_ptr = NULL;
   char         *line;
 
+  newline_ptr = NULL;
   if (static_buff)
     newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
   while (!newline_ptr)
@@ -38,6 +39,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
