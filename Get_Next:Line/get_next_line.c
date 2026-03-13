@@ -25,8 +25,12 @@ char  *get_next_line(int fd)
         newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
       }
   }
-  if (!newline_ptre && static_buff)
+  if (!newline_ptr && static_buff)
+  {
     line = ft_extract_new_line(static_buff, (ft_strlen(static_buff)-1));
+    free(static_buff);
+    static_buff = NULL;
+  }
   if (newline_ptr)
   {
     line = ft_extract_new_line(static_buff, (size_t)((char *)newline_ptr - static_buff));
@@ -34,6 +38,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
