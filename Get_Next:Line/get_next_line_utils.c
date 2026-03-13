@@ -28,76 +28,73 @@ void    *ft_memchr(const void *ptr, int c, size_t n)
     return (NULL);
 }
 /* Extract the line with \n in it*/
-char    *ft_extract_new_line(char *buff, size_t newline_position)
+char    *ft_extract_new_line(char *static_buff, size_t newline_position)
 {
-    char    *new_line;
+    char    *line;
     size_t  i;
 
-    new_line = malloc(newline_position + 2);
+    line = malloc(newline_position + 2);
     i = 0;
-    if (!new_line)
+    if (!line)
         return (NULL);
     while (i <= newline_position)
     {
-        new_line[i] = buff[i];
+        line[i] = static_buff[i];
         i++;
     }
-    new_line[newline_position + 1] = '\0';
-    return (new_line);
+    line[newline_position + 1] = '\0';
+    return (line);
 }
 /* Shift the static buffer to only contain what commes after \n*/
-char    *ft_shift_buff(char *buff, size_t newline_position)
+char    *ft_shift_buff(char *static_buff, size_t newline_position)
 {
-    char    *after_new_line;
+    char    *after_newline;
     size_t  i;
     size_t  j;
     size_t  after_newline_position;
 
     after_newline_position = ft_strlen(buff) - (newline_position + 1);
-    after_new_line = malloc(after_newline_position + 1);
+    after_newline = malloc(after_newline_position + 1);
     i = newline_position + 1;
     j = 0;
-    if (!after_new_line)
+    if (!after_newline)
         return (NULL);
-    while (buff[i])
+    while (static_buff[i])
     {
-        after_new_line[j] = buff[i];
+        after_newline[j] = static_buff[i];
         i++;
         j++;
     }
-    after_new_line[j] = '\0';
-    free (buff);
-    return (after_new_line);
+    after_newline[j] = '\0';
+    free (static_buff);
+    return (after_newline);
 
 }
 /* Apend tmp buff to static buff*/
-char    *ft_append_buff(char *buff, char *tmp_buff, size_t tmp_size)
+char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
 {
-    char    *fullbuff;
-    size_t  bufflen;
+    char    *full_buff;
+    size_t  static_bufflen;
     size_t  i;
 
-    bufflen = 0;
-    if (buff)
-        bufflen = ft_strlen(buff);
-    fullbuff = malloc(bufflen + tmp_size + 1);
-    if (!fullbuff)
+    static_bufflen = 0;
+    if (static_buff)
+        static_bufflen = ft_strlen(static_buff);
+    full_buff = malloc(static_bufflen + tmp_size + 1);
+    if (!full_buff)
         return (NULL);
     i = 0;
-    while (i < bufflen)
+    while (i < static_bufflen)
     {
-        fullbuff[i] = buff[i];
+        full_buff[i] = static_buff[i];
         i++;
     }
     i = 0;
     while (i < tmp_size)
     {
-        fullbuff[bufflen + i] = tmp_buff[i];
+        full_buff[bufflen + i] = tmp_buff[i];
         i++;
     }
-    fullbuff[bufflen + tmp_size] = '\0';
-    return (fullbuff);
+    full_buff[static_bufflen + tmp_size] = '\0';
+    return (full_buff);
 }
-
-
-
