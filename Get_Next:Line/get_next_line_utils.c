@@ -91,7 +91,7 @@ char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
     {
         if (i < static_bufflen)
             full_buff[i] = static_buff[i];
-        if (i < tmp_size)
+        else
             full_buff[static_bufflen + i] = tmp_buff[i - static_bufflen];
         i++;
     }
@@ -99,5 +99,6 @@ char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
     free(static_buff);
     return (full_buff);
 }
+
 
 
