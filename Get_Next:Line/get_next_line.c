@@ -21,7 +21,7 @@ char  *get_next_line(int fd)
       break;
     if (byte_read > 0)
       {
-        static_buff = ft_append_buff(static_buff, tmp_buff, ft_strlen(tmp_buff)); 
+        static_buff = ft_append_buff(static_buff, tmp_buff, byte_read); 
         newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
       }
   }
@@ -32,6 +32,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
