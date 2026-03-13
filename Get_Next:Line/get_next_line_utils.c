@@ -1,5 +1,6 @@
 /* Get the length of a string */
 #include "get_next_line.h"
+#include <stdlib.h>
 
 size_t    ft_strlen(const char *s)
 {
@@ -97,5 +98,6 @@ char    *ft_append_buff(char *buff, char *tmp_buff, size_t tmp_size)
     fullbuff[bufflen + tmp_size] = '\0';
     return (fullbuff);
 }
+
 
 
