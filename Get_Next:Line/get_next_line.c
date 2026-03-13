@@ -10,13 +10,9 @@ char  *get_next_line(int fd)
   void     *newline_ptr;
   char     *line;
 
-  byte_read = read(fd, tmp_buff, BUFFER_SIZE);
-  if (byte_read < 0)
-    return (NULL); 
-  if (byte_read > 0)
-    
   while (!newline_position && satic_buff)
   {
+      byte_read = read(fd, tmp_buff. BUFFER_SIZE);
       if (byte_read == -1)
         return (NULL);
       if (byte_read == 0)
@@ -34,6 +30,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
