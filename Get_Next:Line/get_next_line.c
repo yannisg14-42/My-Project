@@ -14,15 +14,18 @@ char  *get_next_line(int fd)
   if (byte_read < 0)
     return (NULL); 
   if (byte_read > 0)
-    static_buff = ft_append_buff(static_buff, tmp_buff, byte_read);
-  newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(statuc_buff));
-  if (!newline_position && byte_read > 0)
+    
+  while (!newline_position && satic_buff)
   {
       if (byte_read == -1)
-
-      else if (byte_read == 0)
+        return (NULL);
+      if (byte_read == 0)
         break;
-      else 
+      if (byte_read > 0);
+        {
+          static_buff = ft_append_buff(static_buff, tmp_buff, ft_strlen(tmp_buff)); 
+          newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
+        }
   }
   if (newline_position)
   {
@@ -31,6 +34,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
