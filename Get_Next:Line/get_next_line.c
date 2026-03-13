@@ -9,19 +9,18 @@ char  *get_next_line(int fd)
   ssize_t  byte_read;
   size_t   newline_position;
   char     *line;
-  
-  newline_position = '\n';
+
+  newline_position = ft_memchr(static_buff, '\n', BUFFER_SIZE);
   while (!newline_position && static_buff)
   {
-    read(fd, tmp_buff, byte_read);
-      if (read == -1)
+    read(fd, tmp_buff, BUFFER_SIZE);
+      if (byte_read == -1)
 
-      else if (read == 0)
+      else if (byte_read == 0)
         break;
-      else if (read > 0)
-        ft_append_buff(static_buff, tmp_buff, byte_read);
+      else if (byte_read > 0)
+        static_buff = ft_append_buff(static_buff, tmp_buff, byte_read);
   }
-  ft_memchr(static_buff, \n, ft_strlen(static_buff));
   if (newline_position)
   {
     ft_extract_new_line(static_buff, newline_position);
@@ -29,6 +28,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
