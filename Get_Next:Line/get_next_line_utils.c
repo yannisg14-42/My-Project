@@ -83,8 +83,8 @@ char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
     full_buff = malloc(static_bufflen + tmp_size + 1);
     if (!full_buff)
     {
-        return (NULL);
         free(static_buff);
+        return (NULL);
     }
     i = 0;
     while (i < static_bufflen)
@@ -102,6 +102,7 @@ char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
     free(static_buff);
     return (full_buff);
 }
+
 
 
 
