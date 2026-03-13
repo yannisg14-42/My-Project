@@ -7,7 +7,7 @@ char  *get_next_line(int fd)
   static   char  *static_buff;
   char     tmp_buff[BUFFER_SIZE];
   ssize_t  byte_read;
-  void     *newline_ptr;
+  void     *newline_ptr = NULL;
   char     *line;
 
   if (static_buff)
@@ -38,6 +38,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
