@@ -10,10 +10,10 @@ char  *get_next_line(int fd)
   size_t   newline_position;
   char     *line;
 
-  newline_position = ft_memchr(static_buff, '\n', BUFFER_SIZE);
+  static_buff = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
   while (!newline_position && static_buff)
   {
-    read(fd, tmp_buff, BUFFER_SIZE);
+    byte_read = read(fd, tmp_buff, BUFFER_SIZE);
       if (byte_read == -1)
 
       else if (byte_read == 0)
@@ -23,11 +23,12 @@ char  *get_next_line(int fd)
   }
   if (newline_position)
   {
-    ft_extract_new_line(static_buff, newline_position);
-    ft_shift_buff(static_buff, newline_position);
+    line = ft_extract_new_line(static_buff, newline_position);
+    static_buff = ft_shift_buff(static_buff, newline_position);
   }
   return (line);
 }
+
 
 
 
