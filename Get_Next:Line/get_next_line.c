@@ -18,7 +18,10 @@ char  *get_next_line(int fd)
   {
     byte_read = read(fd, tmp_buff, BUFFER_SIZE);
     if (byte_read == -1)
+    {
+      free(static_buff);
       return (NULL);
+    }
     if (byte_read == 0)
       break;
     if (byte_read > 0)
@@ -40,6 +43,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
