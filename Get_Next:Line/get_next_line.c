@@ -20,6 +20,7 @@ char  *get_next_line(int fd)
     if (byte_read == -1)
     {
       free(static_buff);
+      static_buff = NULL;
       return (NULL);
     }
     if (byte_read == 0)
@@ -43,6 +44,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
