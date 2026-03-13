@@ -14,7 +14,7 @@ char  *get_next_line(int fd)
     newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
   while (!newline_ptr)
   {
-    byte_read = read(fd, tmp_buff. BUFFER_SIZE);
+    byte_read = read(fd, tmp_buff, BUFFER_SIZE);
     if (byte_read == -1)
       return (NULL);
     if (byte_read == 0)
@@ -32,6 +32,7 @@ char  *get_next_line(int fd)
   }
   return (line);
 }
+
 
 
 
