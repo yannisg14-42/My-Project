@@ -92,11 +92,12 @@ char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
         if (i < static_bufflen)
             full_buff[i] = static_buff[i];
         if (i < tmp_size)
-            full_buff[static_bufflen + i] = tmp_buff[i];
+            full_buff[static_bufflen + i] = tmp_buff[i - static_bufflen];
         i++;
     }
     full_buff[static_bufflen + tmp_size] = '\0';
     free(static_buff);
     return (full_buff);
 }
+
 
