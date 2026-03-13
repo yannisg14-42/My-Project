@@ -87,22 +87,16 @@ char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
         return (NULL);
     }
     i = 0;
-    while (i < static_bufflen)
+    while (i < (static_bufflen + tmp_size))
     {
-        full_buff[i] = static_buff[i];
-        i++;
-    }
-    i = 0;
-    while (i < tmp_size)
-    {
-        full_buff[static_bufflen + i] = tmp_buff[i];
+        if (i < static_bufflen)
+            full_buff[i] = static_buff[i];
+        if (i < tmp_size)
+            full_buff[static_bufflen + i] = tmp_buff[i];
         i++;
     }
     full_buff[static_bufflen + tmp_size] = '\0';
     free(static_buff);
     return (full_buff);
 }
-
-
-
 
