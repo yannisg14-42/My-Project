@@ -10,7 +10,7 @@ char  *get_next_line(int fd)
   void     *newline_ptr;
   char     *line;
 
-  while (!newline_position && satic_buff)
+  while (!newline_ptr && satic_buff)
   {
       byte_read = read(fd, tmp_buff. BUFFER_SIZE);
       if (byte_read == -1)
@@ -25,11 +25,12 @@ char  *get_next_line(int fd)
   }
   if (newline_position)
   {
-    line = ft_extract_new_line(static_buff, newline_position);
-    static_buff = ft_shift_buff(static_buff, newline_position);
+    line = ft_extract_new_line(static_buff, newline_ptr);
+    static_buff = ft_shift_buff(static_buff, newline_ptr);
   }
   return (line);
 }
+
 
 
 
