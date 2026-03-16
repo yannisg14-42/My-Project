@@ -21,13 +21,13 @@ char	*ft_strrchr(const char *str, int c)
 	while (str[str_len])
 		str_len++;
 	if (c == '\0')
-		return (&str[str_len]);
+		return ((char *)&str[str_len]);
 	i = str_len;
 	while (i > 0)
 	{
 		i--;
 		if (str[i] == (char)c)
-			return (&str[i]);
+			return ((char *)&str[i]);
 	}
 	return (NULL);
 }
