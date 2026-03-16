@@ -18,6 +18,8 @@ ssize_t ft_read_buff(int fd, char **static_buff)
     return (0);
   if (byte_read > 0)
     *static_buff = ft_append_buff(*static_buff, tmp_buff, byte_read);
+  if (!*static_buff)
+    return (-1);
   return (byte_read);
 }
 
