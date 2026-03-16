@@ -7,7 +7,6 @@ ssize_t ft_read_buff(int fd, char **static_buff)
   char    tmp_buff[BUFFER_SIZE];
   ssize_t byte_read;
 
-  newline_ptr = NULL;
   byte_read = read(fd, tmp_buff, BUFFER_SIZE);
   if (byte_read == -1)
   {
