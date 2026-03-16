@@ -99,7 +99,3 @@ char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
     free(static_buff);
     return (full_buff);
 }
-
-
-
-

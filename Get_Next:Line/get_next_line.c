@@ -2,11 +2,29 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+ssize_t ft_read_buff(int fd, char **static_buff)
+{
+  char    tmp_buff[BUFFER_SIZE];
+  ssize_t byte_read;
+  void    *newline_ptr;
+
+  newline_ptr = NULL;
+  byte_read = read(fd, tmp_buff, BUFFER_SIZE);
+  if (byte_read == -1)
+  {
+    free(*static_buff);
+    *static_buff = NULL;
+    return (NULL);
+  }
+  if (byte_read == 0)
+    return (0);
+  if (byte_read > 0)
+    *static_buff = ft_append_buff(*static_buff, tmp_buff, byte_read);
+  return (byte_read);
+}
 char  *get_next_line(int fd)
 {
   static char  *static_buff;
-  char         tmp_buff[BUFFER_SIZE];
-  ssize_t      byte_read;
   void         *newline_ptr;
   char         *line;
 
@@ -16,20 +34,8 @@ char  *get_next_line(int fd)
     newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
   while (!newline_ptr)
   {
-    byte_read = read(fd, tmp_buff, BUFFER_SIZE);
-    if (byte_read == -1)
-    {
-      free(static_buff);
-      static_buff = NULL;
-      return (NULL);
-    }
-    if (byte_read == 0)
-      break;
-    if (byte_read > 0)
-      {
-        static_buff = ft_append_buff(static_buff, tmp_buff, byte_read); 
-        newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
-      }
+    ft_read_buff(fd, &static_buff);
+    newline_ptr = ft_memchr(*static_buff, '\n', ft_strlen(*static_buff));
   }
   if (!newline_ptr && static_buff)
   {
