@@ -31,11 +31,8 @@ char  *get_next_line(int fd)
   line = NULL;
   if (static_buff)
     newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
-  while (!newline_ptr)
-  {
-    ft_read_buff(fd, &static_buff);
+  while (!newline_ptr && ft_read_buff(fd, &static_buff) > 0)
     newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
-  }
   if (!newline_ptr && static_buff)
   {
     line = ft_extract_new_line(static_buff, (ft_strlen(static_buff)-1));
