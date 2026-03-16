@@ -17,7 +17,11 @@ ssize_t ft_read_buff(int fd, char **static_buff)
   if (byte_read == 0)
     return (0);
   if (byte_read > 0)
+  {
     *static_buff = ft_append_buff(*static_buff, tmp_buff, byte_read);
+    if (!*static_buff)
+      return (-1);
+  }
   return (byte_read);
 }
 
@@ -29,6 +33,8 @@ char  *get_next_line(int fd)
 
   newline_ptr = NULL;
   line = NULL;
+  if (fd < 0 || BUFFER_SIZE <= 0)
+    return (NULL);
   if (static_buff)
     newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
   while (!newline_ptr && ft_read_buff(fd, &static_buff) > 0)
