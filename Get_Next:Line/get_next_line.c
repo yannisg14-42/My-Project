@@ -16,8 +16,7 @@ ssize_t ft_read_buff(int fd, char **static_buff)
   }
   if (byte_read == 0)
     return (0);
-  if (byte_read > 0)
-    *static_buff = ft_append_buff(*static_buff, tmp_buff, byte_read);
+  *static_buff = ft_append_buff(*static_buff, tmp_buff, byte_read);
   if (!*static_buff)
     return (-1);
   return (byte_read);
@@ -49,7 +48,7 @@ char  *get_next_line(int fd)
   return (line);
 }
 
-#include <fcntl.h>
+/*#include <fcntl.h>
 #include <stdio.h>
 
 int	main(int argc, char *argv[])
@@ -78,4 +77,4 @@ int	main(int argc, char *argv[])
 	}
 	close(fd);
 	return (0);
-}
+}*/
