@@ -22,6 +22,7 @@ ssize_t ft_read_buff(int fd, char **static_buff)
     *static_buff = ft_append_buff(*static_buff, tmp_buff, byte_read);
   return (byte_read);
 }
+
 char  *get_next_line(int fd)
 {
   static char  *static_buff;
