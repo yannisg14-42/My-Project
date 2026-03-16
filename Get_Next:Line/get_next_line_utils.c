@@ -54,8 +54,11 @@ char    *ft_shift_buff(char *static_buff, size_t newline_position)
     size_t  after_newline_position;
 
     after_newline_position = ft_strlen(static_buff) - (newline_position + 1);
-    if (!after_position_position)
+    if (!after_newline_position)
+    {
+        free(static_buff);
         return (NULL);
+    }
     after_newline = malloc(after_newline_position + 1);
     i = newline_position + 1;
     j = 0;
