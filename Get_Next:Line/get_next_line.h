@@ -2,6 +2,7 @@
 # define GET_NEXT_LINE_H
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 42
+#endif
 
 #include <stddef.h>
 #include <unistd.h>
@@ -20,7 +21,4 @@ ssize_t  ft_read_buff(int fd, char **static_buff);
 
 char    *get_next_line(int fd);
 
-
 #endif
-#endif
-
