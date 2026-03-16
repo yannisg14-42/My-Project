@@ -50,7 +50,6 @@ char    *ft_shift_buff(char *static_buff, size_t newline_position)
 {
     char    *after_newline;
     size_t  i;
-    size_t  j;
     size_t  after_newline_position;
 
     after_newline_position = ft_strlen(static_buff) - (newline_position + 1);
@@ -61,7 +60,6 @@ char    *ft_shift_buff(char *static_buff, size_t newline_position)
     }
     after_newline = malloc(after_newline_position + 1);
     i = newline_position + 1;
-    j = 0;
     if (!after_newline)
     {
         free(static_buff);
@@ -69,11 +67,10 @@ char    *ft_shift_buff(char *static_buff, size_t newline_position)
     }
     while (static_buff[i])
     {
-        after_newline[j] = static_buff[i];
+        after_newline[i - (newline_position - 1)] = static_buff[i];
         i++;
-        j++;
     }
-    after_newline[j] = '\0';
+    after_newline[i] = '\0';
     free (static_buff);
     return (after_newline);
 }
