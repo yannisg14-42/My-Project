@@ -70,7 +70,7 @@ char    *ft_shift_buff(char *static_buff, size_t newline_position)
         after_newline[i - (newline_position + 1)] = static_buff[i];
         i++;
     }
-    after_newline[i] = '\0';
+    after_newline[after_newline_position] = '\0';
     free (static_buff);
     return (after_newline);
 }
