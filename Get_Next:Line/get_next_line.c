@@ -47,7 +47,7 @@ char  *get_next_line(int fd)
   return (line);
 }
 
-/*#include <fcntl.h>
+#include <fcntl.h>
 #include <stdio.h>
 
 int	main(int argc, char *argv[])
@@ -76,4 +76,4 @@ int	main(int argc, char *argv[])
 	}
 	close(fd);
 	return (0);
-}*/
+}
