@@ -58,7 +58,10 @@ char    *ft_shift_buff(char *static_buff, size_t newline_position)
     i = newline_position + 1;
     j = 0;
     if (!after_newline)
+    {
+        free(static_buff);
         return (NULL);
+    }
     while (static_buff[i])
     {
         after_newline[j] = static_buff[i];
@@ -68,7 +71,6 @@ char    *ft_shift_buff(char *static_buff, size_t newline_position)
     after_newline[j] = '\0';
     free (static_buff);
     return (after_newline);
-
 }
 /* Apend tmp buff to static buff*/
 char    *ft_append_buff(char *static_buff, char *tmp_buff, size_t tmp_size)
