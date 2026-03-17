@@ -8,7 +8,7 @@ By doing so we learn what variadic functions from the library **<stdarg.h>** are
 
 # 🔎<ins>BUT HOW DOES IT WORK ?
 
-We parse the format string character by character, and each time we encounter a **%** followed by a conversion specifier, we call **va_arg** at the moment with the right type. So the role of our main loop in **ft_printf()** walk the the format string, and whenever we hit a **%**, we look at the next character to determine the specifier(**c,s,p,d,i,u,x,X,%**), and based on that we call **va_arg** with the corresponding type and dispatch to the right printing function.
+We parse the format string character by character, and each time we encounter a **%** followed by a conversion specifier, we call **va_arg** at the moment with the right type. So the role of our main loop in **ft_printf()** walk the format string, and whenever we hit a **%**, we look at the next character to determine the specifier(**c,s,p,d,i,u,x,X,%**), and based on that we call **va_arg** with the corresponding type and dispatch to the right printing function.
 
 We can see **va_list** as a cursor that tracks where I am currently in the argument list.Every time **va_arg** is called, that cursor advances. Passing it as va_list * (a pointer to the va_list) means every **va_arg** call inside the sub-functions advances the real cursor, so the state stays consistent across the entire dispatch chain.
 
