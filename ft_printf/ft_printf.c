@@ -19,7 +19,7 @@ int ft_handler_specifier(char specifier, va_list *args)
     i = 0;
     while (table[i].handler != NULL)
     {
-        if (table[i]).specifier == specifier)
+        if ((table[i]).specifier == specifier)
             return (table[i].handler(args));
         i++;
     }
