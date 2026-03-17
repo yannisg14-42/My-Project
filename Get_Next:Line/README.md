@@ -14,7 +14,7 @@ static buffer, then checks if a `\n` was found. If yes, it extracts and returns
 that line and shifts the static buffer to keep only what comes after the `\n`.
 If no `\n` is found and the file is exhausted, it returns the remaining content.
 
-## Algorithm and Data Structure
+## 🔨Algorithm and Data Structure
 
 A static `char *` was chosen to persist state between calls without requiring
 the caller to manage any external state. The buffer grows dynamically via
