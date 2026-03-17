@@ -19,6 +19,6 @@ char     *ft_append_buff(char *buff, char *tmp_buff, size_t tmp_size);
 
 ssize_t  ft_read_buff(int fd, char **static_buff);
 
-char    *get_next_line(int fd);
+char     *get_next_line(int fd);
 
 #endif
