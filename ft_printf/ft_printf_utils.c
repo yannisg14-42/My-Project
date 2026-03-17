@@ -10,7 +10,7 @@ int ft_print_char(va_list *args)
 }
 int ft_print_percent(va_list *args)
 {
-    write(1, '%', 1);
+    write(1, "%", 1);
     return (1);
 }
 int ft_print_str(va_list *args)
@@ -28,13 +28,17 @@ int ft_print_str(va_list *args)
     write(1, str, len);
     return (len);
 }
-int ft_print_digit(long nb)
+int ft_print_digits(long nb)
 {
+    char    c;
+    int     count;
+
+    c = nb % 10 + '0';
+    count = 1;
     if (nb >= 10)
-    {
-        ft_print_digit(nb/10)
-        write(1, )
-    }
+        count = ft_print_digits(nb / 10) + 1;
+    write(1, &c, 1);
+    return (count);
 }
 int ft_print_int(va_list *args)
 {
@@ -44,17 +48,16 @@ int ft_print_int(va_list *args)
     nb = (long)va_arg(*args, int);
     count = 0;
     if (nb == 0)
+    {
+        write(1, "0", 1);
         return (1);
+    }
     if (nb < 0)
     {
-        write(1, '-', 1);
+        write(1, "-", 1);
         count++;
         nb *= -1;
     }
-    while (nb != 0)
-    {
-        nb /= 10;
-        count++;
-    }
+        count += ft_print_digits(nb);
     return (count);
 }

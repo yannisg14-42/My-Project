@@ -30,4 +30,8 @@ int ft_print_ptr(va_list *args);
 
 int ft_print_percent(va_list *args);
 
+int ft_print_digits(long nb);
+
+int ft_print_hex_digits(unsigned long nb, char *base);
+
 #endif
