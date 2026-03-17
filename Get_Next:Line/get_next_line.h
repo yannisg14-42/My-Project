@@ -4,8 +4,8 @@
 # define BUFFER_SIZE 42
 #endif
 
-#include <stddef.h>
-#include <unistd.h>
+# include <stddef.h>
+# include <unistd.h>
 
 size_t    ft_strlen(const char *s);
 
