@@ -14,7 +14,7 @@ We can see **va_list** as a cursor that tracks where I am currently in the argum
 
 **ft_handle_specifier(char specifier, va_list *args)** takes the identified character and the **va_list** pointer, and does the dispatching internally. That cleanly separates two responsibilities: the main loop handles parsing the format string, and the helper handles executing the right conversion. In the utils.c we wrote all the conversion handler.
 
-## 🔨Algorithm and Data Structure.
+## 🔨<ins>Algorithm and Data Structure.
 
 This dispatch table approach was chosen over a simple `if/else if` chain for three reasons: it respects the 42 Norm's 25-line function limit naturally, it cleanly separates parsing logic from conversion logic, and it is easily extensible — adding a new specifier requires only one new line in the table and one new function, without touching existing code.
 
