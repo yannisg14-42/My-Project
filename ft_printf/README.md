@@ -2,7 +2,7 @@
 
 # 📖<ins>DESCRIPTION
 
-The goal of this 42 project is to implement our own version of a well known function from the the **<stdio.h>** library: **printf()**
+The goal of this 42 project is to implement our own version of a well known function from the **<stdio.h>** library: **printf()**
 
 By doing so we learn what variadic functions from the library **<stdarg.h>** are and how they work. In C, variadic functions are functions that can take a variable number of arguments. This feature is useful when the number of arguments for a function is unknown. It takes one fixed argument and then any number of arguments can be passed. Which is paramount since the original **printf()** can make multiple call of the same function but with different arguments.
 
