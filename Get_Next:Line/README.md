@@ -26,7 +26,7 @@ cleanly separate each responsibility: reading, extracting, shifting, and appendi
 Compile with a custom buffer size:
 `cc -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c yourfile.c`
 
-# 📎 <ins>RESOURCES
+# 📎<ins>RESOURCES
 
 [Man page of read()](https://man7.org/linux/man-pages/man2/read.2.html)
 

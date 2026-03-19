@@ -1,49 +1,63 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/18 13:42:06 by sgarba            #+#    #+#             */
+/*   Updated: 2026/03/18 14:05:01 by sgarba           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include <unistd.h>
 #include <stdlib.h>
 
-ssize_t ft_read_buff(int fd, char **static_buff)
+ssize_t	ft_read_buff(int fd, char **static_buff)
 {
-  char    tmp_buff[BUFFER_SIZE];
-  ssize_t byte_read;
+	char	tmp_buff[BUFFER_SIZE];
+	ssize_t	byte_read;
 
-  byte_read = read(fd, tmp_buff, BUFFER_SIZE);
-  if (byte_read == -1)
-  {
-    free(*static_buff);
-    *static_buff = NULL;
-    return (-1);
-  }
-  if (byte_read == 0)
-    return (0);
-  *static_buff = ft_append_buff(*static_buff, tmp_buff, byte_read);
-  if (!*static_buff)
-    return (-1);
-  return (byte_read);
+	byte_read = read(fd, tmp_buff, BUFFER_SIZE);
+	if (byte_read == -1)
+	{
+		free(*static_buff);
+		*static_buff = NULL;
+		return (-1);
+	}
+	if (byte_read == 0)
+		return (0);
+	*static_buff = ft_append_buff(*static_buff, tmp_buff, byte_read);
+	if (!*static_buff)
+		return (-1);
+	return (byte_read);
 }
 
-char  *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-  static char  *static_buff;
-  void         *newline_ptr;
-  char         *line;
+	static char	*static_buff;
+	void		*newline_ptr;
+	char		*line;
 
-  newline_ptr = NULL;
-  line = NULL;
-  if (static_buff)
-    newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
-  while (!newline_ptr && ft_read_buff(fd, &static_buff) > 0)
-    newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
-  if (!newline_ptr && static_buff && ft_strlen(static_buff) > 0)
-  {
-    line = ft_extract_new_line(static_buff, (ft_strlen(static_buff)-1));
-    free(static_buff);
-    static_buff = NULL;
-  }
-  if (newline_ptr)
-  {
-    line = ft_extract_new_line(static_buff, (size_t)((char *)newline_ptr - static_buff));
-    static_buff = ft_shift_buff(static_buff, (size_t)((char *)newline_ptr - static_buff));
-  }
-  return (line);
+	newline_ptr = NULL;
+	line = NULL;
+	if (static_buff)
+		newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
+	while (!newline_ptr && ft_read_buff(fd, &static_buff) > 0)
+		newline_ptr = ft_memchr(static_buff, '\n', ft_strlen(static_buff));
+	if (!newline_ptr && static_buff && ft_strlen(static_buff) > 0)
+	{
+		line = ft_extract_new_line(static_buff, (ft_strlen(static_buff) - 1));
+		free(static_buff);
+		static_buff = NULL;
+	}
+	if (newline_ptr)
+	{
+		line = ft_extract_new_line(static_buff, 
+				(size_t)((char *)newline_ptr - static_buff));
+		static_buff = ft_shift_buff(static_buff, 
+				(size_t)((char *)newline_ptr - static_buff));
+	}
+	return (line);
 }
