@@ -21,7 +21,7 @@ This dispatch table approach was chosen over a simple `if/else if` chain for thr
 # ⚙️<ins>INSTRUCTION.
 
 1. First of all run `make` to build `libftprintf.a`.
-2. Second run `cc yourfile.c -I path/to/ft_printf -L path/to/ft_printf -lftprintf` to compile the code
+2. Second run `cc ft_printf_main.c -I . -I libft/ -L . -lftprintf -o test && ./test` to compile the code
 
 # 📎<ins>RESSOURCES
 
@@ -32,5 +32,7 @@ This dispatch table approach was chosen over a simple `if/else if` chain for thr
 [Type Conversion in C](https://www.geeksforgeeks.org/c/type-conversion-c/).
 
 [My libft](https://github.com/yannisg14-42/My-Project/tree/main/libft).
+
+[What are Dispatch Tables](https://en.wikipedia.org/wiki/Dispatch_table#:~:text=In%20computer%20science%2C%20a%20dispatch,and%20reduce%20lines%20of%20code.).
 
 I used AI for in depth conceptual explanation and socratic learning, not direct code generation.
