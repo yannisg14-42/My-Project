@@ -23,7 +23,7 @@ This dispatch table approach was chosen over a simple `if/else if` chain for thr
 1. First of all run `make` to build `libftprintf.a`.
 2. Second run `cc ft_printf_main.c -I . -I libft/ -L . -lftprintf -o test && ./test` to compile the code
 
-# 📎<ins>RESSOURCES
+# 📎<ins>RESSOURCES.
 
 [What Variadic Functions in C are](https://www.geeksforgeeks.org/c/variadic-functions-in-c/).
 
