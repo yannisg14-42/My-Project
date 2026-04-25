@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 23:10:27 by sgarba            #+#    #+#             */
-/*   Updated: 2026/04/24 22:45:25 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/04/25 22:17:51 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(int argc, char *argv[])
 {
 	int		number;
 	size_t	i;
+	int		dup;
 
 	if (argc == 1)
 		return (0);
@@ -29,5 +30,11 @@ int main(int argc, char *argv[])
 			return (1);
 		}
 		i++;
+	}
+	dup = ft_is_dup(argv + 1);
+	if (dup == 1)
+	{
+		write (2, "Error\n", 6);
+		return (1);
 	}
 }

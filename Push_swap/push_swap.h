@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 23:10:29 by sgarba            #+#    #+#             */
-/*   Updated: 2026/04/24 20:14:36 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/04/25 22:08:25 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ typedef struct s_stack
 }	t_stack;
 
 int	ft_is_valid_int(char *result);
+
+int	ft_is_dup(char **str);
 
 #endif
