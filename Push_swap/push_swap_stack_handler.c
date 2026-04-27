@@ -1,40 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_stack_handler.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/20 23:10:27 by sgarba            #+#    #+#             */
-/*   Updated: 2026/04/27 17:40:19 by sgarba           ###   ########.fr       */
+/*   Created: 2026/04/27 17:05:08 by sgarba            #+#    #+#             */
+/*   Updated: 2026/04/27 21:18:53 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char *argv[])
+t_node	*ft_make_node(int value)
 {
-	int		number;
-	int		dup;
-	size_t	i;
+	t_node	*n;
 
-	if (argc == 1)
-		return (0);
+	n = malloc(sizeof(t_node));
+	if (!n)
+		return (NULL);
+	n-> value = value;
+	n-> prev = NULL;
+	n-> next = NULL;
+	return (n);
+}
+void	ft_populate_stack(t_stack *stack, char *argv[])
+{
+	size_t	i;
+	t_node	*new;
+
 	i = 1;
 	while (argv[i])
 	{
-		number = ft_is_valid_int(argv[i]);
-		if (number == 0)
+		new = ft_add_node(ft_atoi(argv[i]));
+		if (stack == '\0')
 		{
-			write (2, "Error\n", 6);
-			return (1);
+			stack->head = new;
+			stack->tail = new;
+		}
+		else
+		{
+			stack->tail->next = new;
+			new->prev->
+			
 		}
 		i++;
 	}
-	dup = ft_is_dup(argv + 1);
-	if (dup == 1)
-	{
-		write (2, "Error\n", 6);
-		return (1);
-	}
+	return ;
 }
