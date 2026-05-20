@@ -15,8 +15,13 @@ HEADER = push_swap.h
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -I. -I Libft/
 
-SRCS = push_swap_error_handle.c \
-		push_swap.c
+SRCS = push_swap.c \
+		push_swap_error_handler.c \
+		push_swap_stack_handler.c \
+		push_swap_push.c \
+		push_swap_swap.c \
+		push_swap_rotate.c \
+		push_swap_reverse_rotate.c \
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
