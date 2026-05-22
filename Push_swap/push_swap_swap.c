@@ -10,8 +10,12 @@ void	ft_sa(t_stack *a, int print)
 	tmp = a->head;
 	tmp1 = tmp->next;
 	tmp->next = tmp1->next;
+	if (tmp->next != NULL)
+		tmp->next->prev = tmp;
 	a->head = tmp1;
 	tmp1->next = tmp;
+	tmp1->prev = NULL;
+	tmp->prev = tmp1;
 	if (print == 1)
 		write(1, "sa\n", 3);
 }
@@ -25,8 +29,12 @@ void	ft_sb(t_stack *b, int print)
 	tmp = b->head;
 	tmp1 = tmp->next;
 	tmp->next = tmp1->next;
+	if (tmp->next != NULL)
+		tmp->next->prev = tmp;
 	b->head = tmp1;
 	tmp1->next = tmp;
+	tmp1->prev = NULL;
+	tmp->prev = tmp1;
 	if (print == 1)
 		write(1, "sb\n", 3);
 }

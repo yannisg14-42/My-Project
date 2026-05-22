@@ -10,6 +10,8 @@ void	ft_pb(t_stack *a, t_stack *b)
 	a->head = a->head->next;
 	if (a->head != NULL)
 		a->head->prev = NULL;
+	else
+		a->tail = NULL;
 	tmp->next = NULL;
 	if (b->head == NULL)
 	{
@@ -36,6 +38,8 @@ void	ft_pa(t_stack *a, t_stack *b)
 	b->head = b->head->next;
 	if (b->head != NULL)
 		b->head->prev = NULL;
+	else
+		b->tail = NULL;
 	tmp->next = NULL;
 	if (a->head == NULL)
 	{

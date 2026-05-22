@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 23:10:29 by sgarba            #+#    #+#             */
-/*   Updated: 2026/05/19 21:41:59 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/22 05:07:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,25 @@ t_node	*ft_find_target(t_stack *stak, int x);
 t_node	*ft_find_min(t_stack *stak);
 
 int	ft_get_cost(int cost_a, int cost_b, int size_a, int size_b);
+
+void	ft_execute_combined(t_stack *a, t_stack *b, t_node *best);
+
+void	ft_execute_a(t_stack *a, t_node *best);
+
+void	ft_execute_b(t_stack *b, t_node *best);
+
+void	ft_execute(t_stack *a, t_stack *b, t_node *best);
+
+void	ft_algorithm(t_stack *a, t_stack *b);
+
+void	ft_find_best(t_stack *a, t_stack *b, t_node **best, int *min_cost);
+
+int	ft_validate_arg(char *argv[]);
+
+void	ft_sort_three(t_stack *a);
+
+void	ft_push_back(t_stack *a, t_stack *b);
+
+void	ft_init_stack(t_stack *a, t_stack *b);
 
 #endif
