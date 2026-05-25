@@ -21,7 +21,6 @@ void	ft_execute_combined(t_stack *a, t_stack *b, t_node *best)
 		pos_a--;
 		pos_b--;
 	}
-	return ;
 }
 void	ft_execute_a(t_stack *a, t_node *best)
 {
@@ -38,7 +37,6 @@ void	ft_execute_a(t_stack *a, t_node *best)
 		ft_rra(a, 1);
 		pos_a--;
 	}
-	return ;
 }
 void	ft_execute_b(t_stack *b, t_node *best)
 {
@@ -57,7 +55,6 @@ void	ft_execute_b(t_stack *b, t_node *best)
 		ft_rrb(b, 1);
 		pos_b--;
 	}
-	return ;
 }
 void	ft_execute(t_stack *a, t_stack *b, t_node *best)
 {
@@ -65,5 +62,4 @@ void	ft_execute(t_stack *a, t_stack *b, t_node *best)
 	ft_execute_a(a, best);
 	ft_execute_b(b, best);
 	ft_pb(a, b);
-	return ;
 }

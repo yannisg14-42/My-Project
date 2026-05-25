@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 17:05:08 by sgarba            #+#    #+#             */
-/*   Updated: 2026/05/21 16:59:14 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/22 12:34:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,4 @@ void	ft_populate_stack(t_stack *stack, char *argv[])
 		stack->size++;
 		i++;
 	}
-	return ;
 }

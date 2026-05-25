@@ -20,7 +20,6 @@ void	ft_find_best(t_stack *a, t_stack *b, t_node **best, int *min_cost)
 		}
 			current = current->next;
 	}
-	return ;
 }
 
 void	ft_algorithm(t_stack *a, t_stack *b)
@@ -39,5 +38,4 @@ void	ft_algorithm(t_stack *a, t_stack *b)
 	ft_push_back(a, b);
 	while (a->head != ft_find_min(a))
 		ft_ra(a, 1);
-	return ;
 }

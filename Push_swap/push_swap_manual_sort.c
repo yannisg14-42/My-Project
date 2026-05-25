@@ -40,5 +40,4 @@ void	ft_push_back(t_stack *a, t_stack *b)
 			ft_ra(a, 1);
 		ft_pa(a, b);
 	}
-	return ;
 }

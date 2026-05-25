@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 23:10:29 by sgarba            #+#    #+#             */
-/*   Updated: 2026/05/22 05:07:33 by marvin           ###   ########.fr       */
+/*   Updated: 2026/05/22 12:40:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,7 @@ void	ft_push_back(t_stack *a, t_stack *b);
 
 void	ft_init_stack(t_stack *a, t_stack *b);
 
+void	ft_free_all(t_stack *stak);
+
+void	ft_run(int argc, char *argv[], t_stack *a, t_stack *b);
 #endif
