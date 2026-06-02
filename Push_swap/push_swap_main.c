@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 23:10:27 by sgarba            #+#    #+#             */
-/*   Updated: 2026/06/02 19:49:21 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/06/03 00:11:16 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	ft_validate_arg(char *argv[])
 		return (1);
 	return (0);
 }
+
 void	ft_init_stack(t_stack *a, t_stack *b)
 {
 	a->head = NULL;
@@ -52,6 +53,7 @@ void	ft_free_all(t_stack *stak)
 		free(tmp);
 	}
 }
+
 void	ft_run(int argc, char *argv[], t_stack *a, t_stack *b)
 {
 	if (argc == 3 && ft_atoi(argv[1]) > ft_atoi(argv[2]))
@@ -61,7 +63,8 @@ void	ft_run(int argc, char *argv[], t_stack *a, t_stack *b)
 	else if (argc > 4)
 		ft_algorithm(a, b);
 }
-int main(int argc, char *argv[])
+
+int	main(int argc, char *argv[])
 {
 	int		valide;
 	t_stack	a;

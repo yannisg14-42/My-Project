@@ -27,6 +27,7 @@ t_node	*ft_find_min(t_stack *stak)
 	}
 	return (min);
 }
+
 int	ft_get_position(t_node *nod, t_stack *stak)
 {
 	int		count;
@@ -41,6 +42,7 @@ int	ft_get_position(t_node *nod, t_stack *stak)
 	}
 	return (count);
 }
+
 t_node	*ft_find_target(t_stack *stack, int x)
 {
 	t_node	*current;
@@ -61,6 +63,7 @@ t_node	*ft_find_target(t_stack *stack, int x)
 		target = ft_find_min(stack);
 	return (target);
 }
+
 int	ft_get_cost(int cost_a, int cost_b, int size_a, int size_b)
 {
 	int	real_a;
@@ -74,9 +77,9 @@ int	ft_get_cost(int cost_a, int cost_b, int size_a, int size_b)
 		real_b = size_b - cost_b;
 	if ((cost_a <= size_a / 2) == (cost_b <= size_b / 2))
 	{
-	if (real_a > real_b)
-		return (real_a);
-	return (real_b);
+		if (real_a > real_b)
+			return (real_a);
+		return (real_b);
 	}
 	return (real_a + real_b);
 }

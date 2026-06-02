@@ -28,6 +28,7 @@ void	ft_rra(t_stack *a, int print)
 	if (print == 1)
 		write(1, "rra\n", 4);
 }
+
 void	ft_rrb(t_stack *b, int print)
 {
 	t_node	*tmp;
@@ -44,6 +45,7 @@ void	ft_rrb(t_stack *b, int print)
 	if (print == 1)
 		write(1, "rrb\n", 4);
 }
+
 void	ft_rrr(t_stack *a, t_stack *b)
 {
 	ft_rra(a, 0);

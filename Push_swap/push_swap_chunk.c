@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 21:24:45 by sgarba            #+#    #+#             */
-/*   Updated: 2026/06/02 23:17:27 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/06/03 00:10:21 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ void	ft_sort_int_arr(int	*arr, int size)
 		i++;
 	}
 }
+
 int	*ft_sorted_arr(t_stack *a)
 {
 	int		*arr;
 	int		i;
 	t_node	*current;
 
-	arr = malloc(sizeof(int) *a->size);
+	arr = malloc(sizeof(int) * a->size);
 	if (!arr)
 		return (NULL);
 	current = a->head;
@@ -55,10 +56,11 @@ int	*ft_sorted_arr(t_stack *a)
 	ft_sort_int_arr(arr, a->size);
 	return (arr);
 }
+
 int	ft_get_rank(int *sorted, int size, int val)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < size)
 	{
@@ -68,6 +70,7 @@ int	ft_get_rank(int *sorted, int size, int val)
 	}
 	return (-1);
 }
+
 int	ft_chunk_pos(t_stack *a, t_chunk chunk)
 {
 	t_node	*current;
@@ -79,7 +82,9 @@ int	ft_chunk_pos(t_stack *a, t_chunk chunk)
 	best_pos = a->size;
 	while (current != NULL)
 	{
-		if (ft_get_rank(chunk.sorted, chunk.n, current->value) >= chunk.min && ft_get_rank(chunk.sorted, chunk.n, current->value) < chunk.max)
+		if (ft_get_rank(chunk.sorted, chunk.n, current->value) >= 
+			chunk.min && ft_get_rank(chunk.sorted, 
+				chunk.n, current->value) < chunk.max)
 		{
 			if (pos < best_pos)
 				best_pos = pos;
@@ -87,14 +92,15 @@ int	ft_chunk_pos(t_stack *a, t_chunk chunk)
 		pos++;
 		current = current->next;
 	}
-	return (best_pos);	
+	return (best_pos);
 }
+
 void	ft_push_chunk(t_stack *a, t_stack *b, t_chunk chunk)
 {
 	int	rank;
 	int	pos;
 	int	count;
-	
+
 	count = chunk.max - chunk.min;
 	while (count > 0)
 	{

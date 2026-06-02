@@ -23,7 +23,7 @@ void	ft_sort_three(t_stack *a)
 	z = a->tail->value;
 	if (x < y && y < z)
 		return ;
-	else if(x < y && y > z && x < z)
+	else if (x < y && y > z && x < z)
 	{
 		ft_sa(a, 1);
 		ft_ra(a, 1);
@@ -40,6 +40,7 @@ void	ft_sort_three(t_stack *a)
 		ft_rra(a, 1);
 	}
 }
+
 void	ft_push_back(t_stack *a, t_stack *b)
 {
 	t_node	*best;
@@ -52,6 +53,7 @@ void	ft_push_back(t_stack *a, t_stack *b)
 		ft_execute_back(a, b, best);
 	}
 }
+
 void	ft_execute_back(t_stack *a, t_stack *b, t_node *best_b)
 {
 	int	pos_b;
@@ -59,7 +61,8 @@ void	ft_execute_back(t_stack *a, t_stack *b, t_node *best_b)
 
 	pos_b = ft_get_position(best_b, b);
 	pos_a = ft_get_position(ft_find_target(a, best_b->value), a);
-	while (pos_b > 0 && pos_a > 0 && pos_b <= b->size / 2 && pos_a <= a->size / 2)
+	while (pos_b > 0 && pos_a > 0 && 
+		pos_b <= b->size / 2 && pos_a <= a->size / 2)
 	{
 		ft_rr(a, b);
 		pos_b--;
@@ -71,6 +74,7 @@ void	ft_execute_back(t_stack *a, t_stack *b, t_node *best_b)
 	ft_rotate_a_to_target(a, best_b);
 	ft_pa(a, b);
 }
+
 void	ft_rotate_b_to_best(t_stack *b, t_node *best_b)
 {
 	int	pos_b;
@@ -87,6 +91,7 @@ void	ft_rotate_b_to_best(t_stack *b, t_node *best_b)
 		pos_b = ft_get_position(best_b, b);
 	}
 }
+
 void	ft_rotate_a_to_target(t_stack *a, t_node *best_b)
 {
 	int	pos_a;

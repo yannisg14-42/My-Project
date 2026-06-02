@@ -31,6 +31,7 @@ void	ft_sa(t_stack *a, int print)
 	if (print == 1)
 		write(1, "sa\n", 3);
 }
+
 void	ft_sb(t_stack *b, int print)
 {
 	t_node	*tmp;

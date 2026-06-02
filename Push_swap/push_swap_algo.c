@@ -26,6 +26,7 @@ void	ft_rotate_min(t_stack *a)
 		while (a->head != min)
 			ft_rra(a, 1);
 }
+
 void	ft_find_best(t_stack *a, t_stack *b, t_node **best, int *min_cost)
 {
 	int		cost;
@@ -38,13 +39,15 @@ void	ft_find_best(t_stack *a, t_stack *b, t_node **best, int *min_cost)
 		if (b->head == NULL)
 			cost = ft_get_position(current, a);
 		else
-			cost = ft_get_cost(ft_get_position(current, a), ft_get_position(ft_find_target(b, current->value), b), a->size, b->size);
+			cost = ft_get_cost(ft_get_position(current, a), 
+					ft_get_position(ft_find_target(b, current->value), b), 
+					a->size, b->size);
 		if (*best == NULL || cost < *min_cost)
 		{
 			*best = current;
 			*min_cost = cost;
 		}
-			current = current->next;
+		current = current->next;
 	}
 }
 
@@ -54,6 +57,7 @@ void	ft_algorithm(t_stack *a, t_stack *b)
 	int		n;
 	int		c;
 	t_chunk	chunk;
+
 	if (a->size < 7)
 	{
 		ft_greedy_sort(a, b);
@@ -75,6 +79,7 @@ void	ft_algorithm(t_stack *a, t_stack *b)
 	ft_push_back(a, b);
 	ft_rotate_min(a);
 }
+
 t_node	*ft_find_best_b(t_stack *a, t_stack *b, int *min_cost)
 {
 	t_node	*current;
@@ -85,7 +90,9 @@ t_node	*ft_find_best_b(t_stack *a, t_stack *b, int *min_cost)
 	best = NULL;
 	while (current != NULL)
 	{
-		cost = ft_get_cost(ft_get_position(current, b), ft_get_position(ft_find_target(a, current->value), a), b->size, a->size);
+		cost = ft_get_cost(ft_get_position(current, b), 
+				ft_get_position(ft_find_target(a, current->value), a), 
+				b->size, a->size);
 		if (best == NULL || cost < *min_cost)
 		{
 			best = current;
@@ -95,6 +102,7 @@ t_node	*ft_find_best_b(t_stack *a, t_stack *b, int *min_cost)
 	}
 	return (best);
 }
+
 void	ft_greedy_sort(t_stack *a, t_stack *b)
 {
 	t_node	*best;

@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 17:05:08 by sgarba            #+#    #+#             */
-/*   Updated: 2026/05/25 20:48:22 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/06/03 00:13:48 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_node	*ft_make_node(int value)
 	n->next = NULL;
 	return (n);
 }
+
 void	ft_populate_stack(t_stack *stack, char *argv[])
 {
 	size_t	i;

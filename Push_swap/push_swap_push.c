@@ -40,6 +40,7 @@ void	ft_pb(t_stack *a, t_stack *b)
 	b->size++;
 	write(1, "pb\n", 3);
 }
+
 void	ft_pa(t_stack *a, t_stack *b)
 {
 	t_node	*tmp;

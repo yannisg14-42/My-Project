@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 19:37:59 by sgarba            #+#    #+#             */
-/*   Updated: 2026/05/25 20:48:05 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/06/02 23:47:51 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_is_valid_int(char *str)
 	long	digit;
 	int		sign;
 	size_t	i;
-	
+
 	i = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
@@ -45,7 +45,7 @@ int	ft_is_dup(char **str)
 {
 	size_t	i;
 	size_t	j;
-	
+
 	i = 0;
 	while (str[i])
 	{
