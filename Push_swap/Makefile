@@ -14,6 +14,7 @@ NAME = push_swap
 HEADER = push_swap.h
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -I. -I Libft/
+LIBFT = Libft/libft.a
 
 SRCS = push_swap_main.c \
 		push_swap_error_handler.c \
@@ -26,14 +27,17 @@ SRCS = push_swap_main.c \
 		push_swap_algo_helper1.c \
 		push_swap_algo.c \
 		push_swap_manual_sort.c \
+		push_swap_chunk.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@make -C Libft
+$(NAME): $(LIBFT) $(OBJS)
 	@$(CC)  $(OBJS) -L Libft -lft -o $(NAME) 
 	@echo "Built: $(NAME)"
+
+$(LIBFT):
+	@make -C Libft
 
 %.o: %.c $(HEADER)
 	@$(CC) $(CFLAGS) -c $< -o $@

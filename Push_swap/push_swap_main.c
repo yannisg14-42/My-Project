@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 23:10:27 by sgarba            #+#    #+#             */
-/*   Updated: 2026/05/22 12:39:45 by marvin           ###   ########.fr       */
+/*   Updated: 2026/06/02 19:49:21 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,27 @@ void	ft_init_stack(t_stack *a, t_stack *b)
 	b->tail = NULL;
 	b->size = 0;
 }
+
+void	ft_free_all(t_stack *stak)
+{
+	t_node	*tmp;
+
+	while (stak->head != NULL)
+	{
+		tmp = stak->head;
+		stak->head = stak->head->next;
+		free(tmp);
+	}
+}
+void	ft_run(int argc, char *argv[], t_stack *a, t_stack *b)
+{
+	if (argc == 3 && ft_atoi(argv[1]) > ft_atoi(argv[2]))
+		ft_sa(a, 1);
+	else if (argc == 4)
+		ft_sort_three(a);
+	else if (argc > 4)
+		ft_algorithm(a, b);
+}
 int main(int argc, char *argv[])
 {
 	int		valide;
@@ -65,24 +86,4 @@ int main(int argc, char *argv[])
 	ft_free_all(&a);
 	ft_free_all(&b);
 	return (0);
-}
-void	ft_free_all(t_stack *stak)
-{
-	t_node	*tmp;
-
-	while (stak->head != NULL)
-	{
-		tmp = stak->head;
-		stak->head = stak->head->next;
-		free(tmp);
-	}
-}
-void	ft_run(int argc, char *argv[], t_stack *a, t_stack *b)
-{
-	if (argc == 3 && ft_atoi(argv[1]) > ft_atoi(argv[2]))
-		ft_sa(a, 1);
-	else if (argc == 4)
-		ft_sort_three(a);
-	else if (argc > 4)
-		ft_algorithm(a, b);
 }
