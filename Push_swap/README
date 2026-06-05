@@ -1,7 +1,113 @@
 *This project has been created as part of the 42 curriculum*
 
-# 📖<ins>DESCRIPTION.
+# 📖 DESCRIPTION
 
-# 🔩<ins>INSTRUCTION.
+**push_swap** is a sorting algorithm project. Given a stack of integers passed as
+arguments, the program outputs the shortest possible sequence of operations to sort
+the stack in ascending order using only two stacks (a and b) and a limited set of
+operations.
 
-# 📎<ins>RESSOURCES.
+### Allowed operations
+
+| Operation | Effect |
+|-----------|--------|
+| `sa` | Swap the top 2 elements of stack a |
+| `sb` | Swap the top 2 elements of stack b |
+| `ss` | `sa` and `sb` simultaneously |
+| `pa` | Push top of b onto stack a |
+| `pb` | Push top of a onto stack b |
+| `ra` | Rotate stack a upward (top goes to bottom) |
+| `rb` | Rotate stack b upward |
+| `rr` | `ra` and `rb` simultaneously |
+| `rra` | Reverse rotate stack a (bottom goes to top) |
+| `rrb` | Reverse rotate stack b |
+| `rrr` | `rra` and `rrb` simultaneously |
+
+---
+
+# 🔩 HOW TO RUN
+
+### Compile
+```
+make
+```
+
+### Run
+```
+./push_swap 3 1 2 5 4
+```
+The program prints the list of operations to stdout, one per line.
+
+### Check operation count
+```
+./push_swap (seq 100 | sort -R) | wc -l
+./push_swap (seq 500 | sort -R) | wc -l
+```
+
+### Verify correctness (with the provided checker)
+```
+./push_swap 3 1 2 5 4 | ./checker 3 1 2 5 4
+```
+
+### Error handling
+The program prints `Error` to stderr and exits if:
+- A non-integer argument is passed
+- An integer exceeds INT range
+- Duplicate values are present
+
+---
+
+# ⚙️ ALGORITHM
+
+### Small inputs (n ≤ 3)
+- **n = 2**: single `sa` if out of order
+- **n = 3**: hardcoded decision tree covering all 6 permutations in at most 2 moves
+
+### Medium inputs (4 ≤ n ≤ 6)
+Uses the **greedy Turk algorithm**: iterates over all elements in stack a, calculates
+the total cost (rotations of a + rotations of b) to push each element to its correct
+position in b, picks the minimum-cost element, executes the move using combined
+rotations (rr/rrr) when both stacks rotate in the same direction, then pushes back
+from b to a greedily.
+
+### Large inputs (n ≥ 7) — Chunk-based Turk algorithm
+
+**Phase 1 — Rank normalization:**
+All values are mapped to ranks 0..n-1 by building a sorted copy of the input array.
+This allows rank-based decisions independent of actual integer values.
+
+**Phase 2 — Chunked push to b:**
+Elements are pushed to b in 3 rank-based chunks:
+- Chunk 1: ranks 0 to n/3-1 (smallest third)
+- Chunk 2: ranks n/3 to 2n/3-1 (middle third)
+- Chunk 3: ranks 2n/3 to n-4 (upper third, leaving 3 in a)
+
+For each chunk, the element requiring the fewest rotations to reach the top of a
+is selected and pushed. After all chunks, b holds all elements except the 3 largest,
+which remain in a.
+
+**Phase 3 — Sort the 3 remaining in a:**
+Hardcoded 3-element sort.
+
+**Phase 4 — Greedy push back from b to a:**
+Scans all elements in b to find the one with minimum combined cost (rotations of b
+to bring it to top + rotations of a to bring its target position to top). Uses
+combined rr/rrr rotations when possible, then pushes with `pa`.
+
+**Phase 5 — Final rotation:**
+Rotates a until the minimum element is at the top, using ra or rra based on which
+direction is shorter.
+
+### Performance
+| Input size | Target | Achieved (avg) |
+|------------|--------|----------------|
+| 100 numbers | < 700 ops | ~580 ops |
+| 500 numbers | < 5500 ops | ~4300 ops |
+
+---
+
+# 📎 RESOURCES
+
+- [Push_swap visualizer](https://github.com/o-reo/push_swap_visualizer)
+- [Turk algorithm explanation](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
+- [42 Norm v4](https://github.com/42School/norminette)
