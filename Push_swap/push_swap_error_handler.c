@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 19:37:59 by sgarba            #+#    #+#             */
-/*   Updated: 2026/06/02 23:47:51 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/06/19 23:28:52 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,18 @@ int	ft_is_dup(char **str)
 		i++;
 	}
 	return (0);
+}
+
+int	ft_is_sorted(t_stack *a)
+{
+	t_node	*current;
+
+	current = a->head;
+	while (current->next != NULL)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

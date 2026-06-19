@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 23:10:27 by sgarba            #+#    #+#             */
-/*   Updated: 2026/06/03 00:11:16 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/06/19 23:27:43 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	ft_free_all(t_stack *stak)
 
 void	ft_run(int argc, char *argv[], t_stack *a, t_stack *b)
 {
+	if (ft_is_sorted(a))
+		return ;
 	if (argc == 3 && ft_atoi(argv[1]) > ft_atoi(argv[2]))
 		ft_sa(a, 1);
 	else if (argc == 4)

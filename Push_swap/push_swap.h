@@ -6,7 +6,7 @@
 /*   By: sgarba <sgarba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/20 23:10:29 by sgarba            #+#    #+#             */
-/*   Updated: 2026/06/02 23:53:29 by sgarba           ###   ########.fr       */
+/*   Updated: 2026/06/19 23:28:40 by sgarba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,4 +123,6 @@ int		ft_chunk_pos(t_stack *a, t_chunk chunk);
 void	ft_push_chunk(t_stack *a, t_stack *b, t_chunk chunk);
 
 void	ft_greedy_sort(t_stack *a, t_stack *b);
+
+int		ft_is_sorted(t_stack *a);
 #endif

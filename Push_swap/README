@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum*
+*This project has been created as part of the 42 curriculum by sgarba.*
 
 # 📖 DESCRIPTION
 
@@ -38,10 +38,28 @@ make
 ```
 The program prints the list of operations to stdout, one per line.
 
-### Check operation count
+### Check operation count — fish shell
 ```
 ./push_swap (seq 100 | sort -R) | wc -l
 ./push_swap (seq 500 | sort -R) | wc -l
+```
+
+### Check operation count — bash
+```
+./push_swap $(seq 100 | sort -R | tr '\n' ' ') | wc -l
+./push_swap $(seq 500 | sort -R | tr '\n' ' ') | wc -l
+```
+
+### Run multiple times to check consistency — fish shell
+```
+for i in (seq 10)
+    ./push_swap (seq 500 | sort -R) | wc -l
+end
+```
+
+### Run multiple times to check consistency — bash
+```
+for i in $(seq 10); do ./push_swap $(seq 500 | sort -R | tr '\n' ' ') | wc -l; done
 ```
 
 ### Verify correctness (with the provided checker)
@@ -99,15 +117,18 @@ Rotates a until the minimum element is at the top, using ra or rra based on whic
 direction is shorter.
 
 ### Performance
-| Input size | Target | Achieved (avg) |
-|------------|--------|----------------|
-| 100 numbers | < 700 ops | ~580 ops |
-| 500 numbers | < 5500 ops | ~4300 ops |
+| Input size | Target    | Achieved (avg) |
+|------------|-----------|----------------|
+| 100 numbers | < 700 ops | ~580 ops       |
+| 500 numbers | < 5500 ops | ~4300 ops     |
 
 ---
 
 # 📎 RESOURCES
 
-- [Push_swap visualizer](https://github.com/o-reo/push_swap_visualizer)
+- [Stack in C explanation](https://www.geeksforgeeks.org/c/implement-stack-in-c/)
 - [Turk algorithm explanation](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
-- [42 Norm v4](https://github.com/42School/norminette)
+- [Linked list explanation](https://www.geeksforgeeks.org/c/linked-list-in-c/)
+- [Linked list explanation](https://medium.com/@Dev_Frank/c-linked-list-singly-linked-list-12aecb168834)
+
+I used AI, to explain the turk algorithm, and linked list more in depth to me. I also used it to give me the commands to generate random numbers.
