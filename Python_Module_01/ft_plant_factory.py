@@ -25,7 +25,7 @@ class Plant:
 
 def ft_plant_factory() -> None:
     plant1 = Plant("sakura", 414.4, 0.2, 14610)
-    plant2 = Plant("ume",777.1, 0.18, 36524)
+    plant2 = Plant("ume", 777.1, 0.18, 36524)
     plant3 = Plant("himawari", 175.5, 2.4, 100)
     plant4 = Plant("tanpopo", 35.0, 2.0, 1461)
     plant5 = Plant("suisen", 56.6, 1.9, 49)
