@@ -127,11 +127,11 @@ def ft_plant_types() -> None:
     tree1.produce_shade()
 
     vegetable1 = Vegetable("tomato", 5.0, 2.1, 10, "april", 0)
-    ripening: int = 20
+    days_to_simulate: int = 20
     print("\n=== Vegetable")
     vegetable1.show()
-    print(f"[make {vegetable1.name} grow and age for {ripening} days]")
-    for days in range(ripening):
+    print(f"[make {vegetable1.name} grow and age for {days_to_simulate} days]")
+    for days in range(days_to_simulate):
         vegetable1.grow()
         vegetable1.age()
     vegetable1.show()
