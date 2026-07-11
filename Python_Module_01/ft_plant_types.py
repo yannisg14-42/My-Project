@@ -1,11 +1,14 @@
+# Parent Class Plant with all Atributes
 class Plant:
 
     def __init__(self, name: str, current_height: float,
                  growth_rate: float, current_age: int) -> None:
         self.name = name
+        self._growth_rate = growth_rate
+        # This how we Validate the protected value
+        # To avoid Data corruption
         self._current_height = 0
         self.set_current_height(current_height)
-        self._growth_rate = growth_rate
         self._current_age = 0
         self.set_current_age(current_age)
 
@@ -48,6 +51,8 @@ class Plant:
             print("Age update rejected\n")
 
 
+# Child Classes "Flower", "Tree" and "Vegetables"
+# They inherit the Atributes and Methods of Parent Class "Plant"
 class Flower(Plant):
 
     def __init__(self, name: str, current_height: float, growth_rate: float,
@@ -85,19 +90,51 @@ class Tree(Plant):
               f"{self._trunk_diameter}cm wide.")
 
 
+class Vegetable(Plant):
+
+    def __init__(self, name: str, current_height: float, growth_rate: float,
+                 current_age: int, harvest_season: str, nutritional_value: int) -> None:
+        super().__init__(name, current_height, growth_rate, current_age)
+        self._harvest_season = harvest_season
+        self._nutritional_value = nutritional_value
+
+    def show(self) -> None:
+        super().show()
+        print(f" Harvest season: {self._harvest_season.capitalize()}")
+        print(f" Nutritional value: {self._nutritional_value}")
+
+    def grow(self) -> None:
+        super().grow()
+        self._nutritional_value += 1 
+
+    def age(self) -> None:
+        super().age()
+
+
 def ft_plant_types() -> None:
     flower1 = Flower("bara", 24.5, 2.1, 30, "blue")
     print("=== Garden Plant Types ===")
     print("=== Flower")
     flower1.show()
-    print("[asking the rose to bloom]")
+    print(f"[asking the {flower1.name} to bloom]")
     flower1.bloom()
     flower1.show()
+
     tree1 = Tree("sakura", 414.4, 0.2, 14610, 34.4)
     print("\n=== Tree")
     tree1.show()
-    print("[asking the sakura to produce shade]")
+    print(f"[asking the {tree1.name} to produce shade]")
     tree1.produce_shade()
+
+    vegetable1 = Vegetable("tomato", 5.0, 2.1, 10, "april", 0)
+    ripening: int = 20
+    print("\n=== Vegetable")
+    vegetable1.show()
+    print(f"[make {vegetable1.name} grow and age for {ripening} days]")
+    for days in range(ripening):
+        vegetable1.grow()
+        vegetable1.age()
+    vegetable1.show()
 
 
 if __name__ == "__main__":
