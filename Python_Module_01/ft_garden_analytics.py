@@ -156,6 +156,5 @@ def ft_garden_analytics() -> None:
     anonymous.show()
     
 
-
 if __name__ == "__main__":
     ft_garden_analytics()
