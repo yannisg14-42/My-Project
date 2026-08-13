@@ -32,7 +32,9 @@ def build_the_grid(width: int, height: int) -> list[list[int]]:
 
 
 def construct_pattern_42(width: int, height: int) -> set[tuple[int, int]]:
-    """This function will check if the grid dimensions can handle the "42" pattern, then generate it
+    """This function will check if the grid dimensions can handle the "42" pattern,
+    then generate it
+
     Args:
         width: an int indicating the width of the grid
         height: an int indicating the height of the grid
@@ -40,7 +42,20 @@ def construct_pattern_42(width: int, height: int) -> set[tuple[int, int]]:
     Returns:
         a set of coordinates of the "42" pattern
     """
-    
+    pattern_width = len(PATTERN_42[0])
+    pattern_height = len(PATTERN_42)
+    pattern_cells: set[tuple[int, int]] = set()
+    if width < pattern_width + 2 or height < pattern_height + 2:
+        raise ValueError("This labyrinth cannot handle the '42' pattern!")
+    origin_x = (width - pattern_width) // 2
+    origin_y = (height - pattern_height) // 2
+    for row_index, line in enumerate(PATTERN_42):
+        for column_index, character in enumerate(line):
+            if character == "#":
+                cell_x = origin_x + column_index
+                cell_y = origin_y + row_index
+                pattern_cells.add((cell_x, cell_y))
+    return pattern_cells
 
 
 def is_wall_closed(cell: int, wall: int) -> bool:
@@ -74,7 +89,7 @@ def open_wall(grid: list[list[int]], x: int, y: int, direction: int) -> None:
     neighbour_y = y + dy
     if not (neighbour_x >= 0 and neighbour_x < len(grid[0])
             and neighbour_y >= 0 and neighbour_y < len(grid)):
-        raise ValueError("You are outside of the labyrinth")
+        raise ValueError("You are outside of the labyrinth!")
     grid[y][x] &= ~direction
     grid[neighbour_y][neighbour_x] &= ~opposite_direction
 
