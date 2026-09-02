@@ -19,6 +19,10 @@ def input_temperature(temp_str: str) -> int:
 
     Returns:
         the int conversion of the str
+
+    Raises:
+        a ValueError message if int(temp_str) get invalid literal for
+        in() with base 10
     """
 
     return int(temp_str)
@@ -27,8 +31,8 @@ def input_temperature(temp_str: str) -> int:
 def test_temperature() -> None:
 
     """
-    A simple try/except function to test the error message of our
-    <input_temperature(temp_str: str) -> int:>.
+    A test function that catches error depending if
+    [input_temperature(temp_str: str) -> int:] raises
 
     Returns:
         None
