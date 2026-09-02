@@ -22,7 +22,7 @@ def input_temperature(temp_str: str) -> int:
 
     Raises:
         a ValueError message if int(temp_str) get invalid literal for
-        in() with base 10
+        int() with base 10
     """
 
     return int(temp_str)
