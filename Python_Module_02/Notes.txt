@@ -1,0 +1,11 @@
+Wednesday, 02 September 2026
+
+Working on python module 02.
+
+.When using try/except, if you try and an error occur it raises, and except catch the error.
+
+.When writing "except ValueError as e" for example, e is the exception object, not a string! and print()
+calls str() on it, which produces that message.
+
+.Always remember, in try/except, as long error is raise one time, EVERYTHING AFTER IS IGNORED and the 
+program exit! Also, at top level, global contants and variables in uppercase
