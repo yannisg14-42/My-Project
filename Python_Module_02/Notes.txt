@@ -9,3 +9,11 @@ calls str() on it, which produces that message.
 
 .Always remember, in try/except, as long error is raise one time, EVERYTHING AFTER IS IGNORED and the 
 program exit! Also, at top level, global contants and variables in uppercase
+
+Wednesday, 09 September 2026
+
+Working on python module 02.
+
+.New conecept learnes: e.__class__.__name__ to get the string of the error type
+
+.When using in range(), if it start with 0, which is the default, no need to write the 0
