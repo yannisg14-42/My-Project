@@ -3,14 +3,15 @@
 # >>>>Global Constants<<<<
 
 HEADER: str = "=== Custom Garden Errors Demo ===\n"
-PROGRAM_END: str = "All custom error types work correctly!!"
+ALL_ERROR_CAUGHT: str = "Testing catching all garden errors"
+PROGRAM_END: str = "\nAll custom error types work correctly!"
 
 
 class GardenError(Exception):
 
     """
     The main class of our custom errors, that itself,
-    iherit from Exception
+    inherit from Exception
 
     Args:
         message: the error message we display when an error
@@ -23,7 +24,6 @@ class GardenError(Exception):
         super().__init__(message)
 
 
-
 class PlantError(GardenError):
 
     """
@@ -34,7 +34,6 @@ class PlantError(GardenError):
                  message: str = "Unknown plant error"
                  ) -> None:
         super().__init__(message)
-
 
 
 class WaterError(GardenError):
@@ -52,17 +51,29 @@ class WaterError(GardenError):
 def custom_errors_test(test_number: int) -> None:
 
     """
+    This function raises our custom error types
+
+    Returns:
+        None
+
+    Raises:
+        two custom error types depending on test_number: int
     """
 
     if test_number == 0:
         raise PlantError("The tomato plant is wilting!")
     elif test_number == 1:
         raise WaterError("Not enough water in the tank!")
-    elif test_number == 2:
-        raise GardenError()
+
+
 def ft_custom_error() -> None:
 
     """
+    This function catches the custom errors and display the
+    according error-message
+
+    Returns:
+        None
     """
 
     print(HEADER)
@@ -71,12 +82,26 @@ def ft_custom_error() -> None:
 
         try:
             custom_errors_test(test_number)
-            print("All good!")
 
-        except (PlantError, WaterError, GardenError) as e:
-            print(f"Testing {e.__class__.__name__}...\n"
+        except PlantError as e:
+            print(f"Inspecting the Tomatoes...\n"
                   f"Caught {e.__class__.__name__}: {e}\n")
-        
+        except WaterError as e:
+            print(f"Checking if the Tank is full...\n"
+                  f"Caught {e.__class__.__name__}: {e}\n")
+
+    print(f"{ALL_ERROR_CAUGHT}...")
+
+    for test_number in range(2):
+
+        try:
+            custom_errors_test(test_number)
+
+        except GardenError as e:
+            print("Caught GardenError:", e)
+
+    print(PROGRAM_END)
+
 
 # >>>>Runs the Code<<<<
 
