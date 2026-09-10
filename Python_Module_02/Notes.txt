@@ -10,6 +10,8 @@ calls str() on it, which produces that message.
 .Always remember, in try/except, as long error is raise one time, EVERYTHING AFTER IS IGNORED and the 
 program exit! Also, at top level, global contants and variables in uppercase
 
+0_0/====================================================================================================C
+
 Wednesday, 09 September 2026
 
 Working on python module 02.
@@ -17,3 +19,15 @@ Working on python module 02.
 .New conecept learnes: e.__class__.__name__ to get the string of the error type
 
 .When using in range(), if it start with 0, which is the default, no need to write the 0
+
+0_0/====================================================================================================C
+
+Thursday, 10 September 2026
+
+Working on python module 02
+
+.ex3 main point: show how to create custom errors call them separatly and show that calling GardenError,
+i.e the parent class, let you call both of them because inheritence
+
+.Also to call a function with less arguments than implemented, you can in the parenthese replace kinda
+hardcode the argument and it will call the hardcodec version if no arguments provided
