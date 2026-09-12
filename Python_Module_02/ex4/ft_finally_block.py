@@ -47,15 +47,15 @@ def water_plant(plant_name: str) -> None:
     else print a success message.
 
     Args:
-        plant_name: the str we are cheking
+        plant_name: the str we are checking
 
     Returns:
         None
 
     Raises:
         a PlantError if plant_name != plant_name.capitalize()
-
     """
+
 
     if plant_name != plant_name.capitalize():
         raise PlantError(f"Invalid plant name to water: '{plant_name}'")
@@ -63,15 +63,25 @@ def water_plant(plant_name: str) -> None:
     print(f"Watering {plant_name}: [OK]")
 
 
-def test_watering_system(plant_to_test: list[str]) -> None:
+def test_watering_system(plants_to_test: list[str]) -> None:
 
     """
+    This function test that whether  water_plant run as intended. If no issue,
+    print normally, else if it raises a PlantError, except catches it,
+    display an error message, and exit to main. The finally block always
+    runs whatever the exit sequence and print a message to prove it.
+
+    Args:
+        plants_to_test: a list[str], that hold all the value to test
+
+    Returns:
+        None
     """
 
     print(OPENING_WATER_SYSTEM)
 
     try:
-        for plant_name in plant_to_test:
+        for plant_name in plants_to_test:
             water_plant(plant_name)
 
     except PlantError as e:
