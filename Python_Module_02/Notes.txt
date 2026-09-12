@@ -42,6 +42,8 @@ Working on python module 02                                                     
                                                                                                          |  |
 ."finally" is guarantee to  run on the way out of the try/except block, whether the code the code exit   |  |
 normally or via except or return, break or continue.                                                     |  |
+                                                                                                         |  |
+.When reaching except block, the program doesn't end, it just handle the exception.                      |  |
                                                                                                         _|  |_
                                                                                                         \\  //
                                                                                                          \\//

@@ -57,7 +57,7 @@ def test_temperature() -> None:
 
 if __name__ == "__main__":
 
-    # This line runs the block of if we call the programm DIRECTLY,
+    # This line runs the block of if we call the program DIRECTLY,
     # but will not, if it is imported.
 
     test_temperature()

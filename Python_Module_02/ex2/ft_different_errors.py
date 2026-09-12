@@ -62,7 +62,7 @@ def test_error_types() -> None:
 
 if __name__ == "__main__":
 
-    # This line runs the block of if we call the programm DIRECTLY,
+    # This line runs the block of if we call the program DIRECTLY,
     # but will not, if it is imported.
 
     test_error_types()
