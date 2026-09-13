@@ -44,6 +44,8 @@ Working on python module 02                                                     
 normally or via except or return, break or continue.                                                     |  |
                                                                                                          |  |
 .When reaching except block, the program doesn't end, it just handle the exception.                      |  |
+                                                                                                         |  |
+.Not forget, that in if __name__ = "__main__" block, I can also print and execute code normally          |  |
                                                                                                         _|  |_
                                                                                                         \\  //
                                                                                                          \\//
