@@ -56,7 +56,6 @@ def water_plant(plant_name: str) -> None:
         a PlantError if plant_name != plant_name.capitalize()
     """
 
-
     if plant_name != plant_name.capitalize():
         raise PlantError(f"Invalid plant name to water: '{plant_name}'")
 
