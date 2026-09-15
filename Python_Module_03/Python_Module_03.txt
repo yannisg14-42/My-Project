@@ -1,1 +1,5 @@
+Tuesday, 15 September 2026:
 
+__Python Module 03__:
+
+  -> len() does the job of the argc in C so we check argc <=> len(sys.argv)cl
