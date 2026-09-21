@@ -3,3 +3,11 @@ Tuesday, 15 September 2026:
 __Python Module 03__:
 
   -> len() does the job of the argc in C so we check argc <=> len(sys.argv)cl
+
+Sunday, 20 September 2026:
+
+__Python Module 03__:
+
+  -> NaN is the only number with the properti NaN == NaN is False. All other number evaluater as
+    number == number is True
+  -> For inf, inf always > finite value and finit value always > -inf. 
