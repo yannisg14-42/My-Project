@@ -1,3 +1,4 @@
 01.10.2026
 
--> 
+-> open() returns a 'file object', i.e a subclass of 'io.IOBase'. The exact class depends on the mode used to open the file.
+-> .read() on a file open in text mode return a str. Type hint 'IO[str]' means a stream that yield strings.
