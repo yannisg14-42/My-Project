@@ -7,3 +7,10 @@
 
 03.10.2026
 -> sys.stdout shows the prompt and sys.stdin reads what the user types
+
+04.10.2026
+-> The different modes to use with open():
+  --> w creates if file is missing; erases existing content immediately upon opening.
+  --> w+ creates if file is missing; erases existing content immediately upon opening; also support read and write.
+  --> a/a+ creates if file missing, but appends to existing content rather than replacing it.
+  --> x creates if file missing, but fails with an error if the file already exists (prevents accidental replacement). 
