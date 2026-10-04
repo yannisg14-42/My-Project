@@ -28,7 +28,6 @@ def main() -> None:
     the end.
     """
 
-
     if len(sys.argv) != 2:
         print(USAGE)
 
@@ -37,6 +36,7 @@ def main() -> None:
 
         print(f"{GRAB} '{sys.argv[1]}'")
 
+        # ---- open() Guard
         try:
             opened_file: typing.IO[str] = open(sys.argv[1])
 
@@ -45,6 +45,7 @@ def main() -> None:
 
             return
 
+        # ---- read() Guard
         try:
             content: str = opened_file.read()
 
