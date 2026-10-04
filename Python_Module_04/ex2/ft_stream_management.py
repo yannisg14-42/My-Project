@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 
 
@@ -15,7 +14,8 @@ GRAB: str = "Accessing file"
 MODIFYING: str = "\nTransform data:"
 EDGE_OF_TEXT: str = "---"
 SAVE_MESSAGE: str = "Enter a new file name (or empty): "
-NO_SAVE: str = "Not saving data."
+NOT_SAVING: str = "Not saving data."
+NOT_SAVED: str = "Data not saved."
 SAVING: str = "Saving data to"
 SAVED: str = "Data saved in file"
 
@@ -48,7 +48,8 @@ def main() -> None:
             opened_file: typing.IO[str] = open(sys.argv[1])
 
         except OSError as e:
-            print(f"{ERROR_OPENING} '{sys.argv[1]}': {e}")
+            sys.stderr.write(f"[STDERR] {ERROR_OPENING} "
+                             f"'{sys.argv[1]}': {e}\n")
             return
 
         # ---- .read() Guard
@@ -56,7 +57,8 @@ def main() -> None:
             content: str = opened_file.read()
 
         except UnicodeError as e:
-            print(f"{ERROR_DECODING} '{sys.argv[1]}': {e}")
+            sys.stderr.write(f"[STDERR] {ERROR_DECODING} "
+                             f"'{sys.argv[1]}': {e}\n")
             return
 
         else:
@@ -98,34 +100,37 @@ def main() -> None:
         only_spaces: bool = cleaned_new_file.isspace()
 
         if not cleaned_new_file or only_spaces:
-            print(NO_SAVE)
+            print(NOT_SAVING)
 
         else:
             print(f"{SAVING} '{cleaned_new_file}'")
 
             # ---- open() Guard
             try:
-                save_file_destination:
-                    typing.IO[str] = open(cleaned_new_file, 'w')
+                save_dest: typing.IO[str] = open(cleaned_new_file, 'w')
 
             except OSError as e:
-                print(f"{ERROR_OPENING} '{cleaned_new_file}': {e}")
+                sys.stderr.write(f"[STDERR] {ERROR_OPENING} "
+                                 f"'{cleaned_new_file}': {e}\n")
+                print(NOT_SAVED)
                 return
 
             # ---- .write() Guard
             try:
-                save_file_destination.write(new_text)
+                save_dest.write(new_text)
 
-                save_file_destination.write("\n")
+                save_dest.write("\n")
 
             except OSError as e:
-                print(f"{ERROR_WRITING} '{cleaned_new_file}': {e}")
+                sys.stderr.write(f"[STDERR] {ERROR_WRITING} "
+                                 f"'{cleaned_new_file}': {e}\n")
+                print(NOT_SAVED)
 
             else:
                 print(f"{SAVED} '{cleaned_new_file}'.")
 
             finally:
-                save_file_destination.close()
+                save_dest.close()
 
                 print(f"File '{cleaned_new_file}' closed.")
 
