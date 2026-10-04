@@ -33,7 +33,19 @@ def main() -> None:
     If we can open the file but cannot read it, then read() raises, 'except'
     catches the error, display an error message, and we close the file at
     the end.
+    Afterward, we modify the content of our file to put a '#' at the end of each
+    line.
+    We then modify our inpur() to display message and return prompt using
+    .stdout.write(). On the prompt if we enter nothin or only whitspaces, we just
+    display a message. Otherwise if we write a valid str our modified content is
+    saved into it in 2 steps.
+    First it try to open the new dest file in 'w' mode: if it fails, open() raises,
+    except catches and we display an error message on .stderr.
+    Secondly we try to write the new content in the new file; if it fail,
+    .write() raises, except catches, and display an error message on .stderr.
+    In the finally: block the new file is always closed.
     """
+
 
     if len(sys.argv) != 2:
         print(USAGE)
