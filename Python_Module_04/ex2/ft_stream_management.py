@@ -35,8 +35,8 @@ def main() -> None:
     the end.
     Afterward, we modify the content of our file to put a '#' at the end of each
     line.
-    We then modify our inpur() to display message and return prompt using
-    .stdout.write(). On the prompt if we enter nothin or only whitspaces, we just
+    We then modify our input() to display a message and return prompt using
+    .stdout.write(). On the prompt if we enter nothing or only whitspaces, we just
     display a message. Otherwise if we write a valid str our modified content is
     saved into it in 2 steps.
     First it try to open the new dest file in 'w' mode: if it fails, open() raises,
