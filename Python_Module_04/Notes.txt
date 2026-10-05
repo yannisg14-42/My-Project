@@ -14,4 +14,10 @@ o01.10.2026
   --> w+ creates if file is missing; erases existing content immediately upon opening; also support read and write.
   --> a/a+ creates if file missing, but appends to existing content rather than replacing it.
   --> x creates if file missing, but fails with an error if the file already exists (prevents accidental replacement).
--> 'exception.__mro__' to get the class, then all parents up to object. 
+-> 'exception.__mro__' to get the class, then all parents up to object.
+
+05.10.2026
+-> with statement in Python, simplify resources management by handling both setup and cleanup, ensuring file or connections safely close, even if errors occur.
+-> The .flush() method in Python forces the immediate writing of data from the internal buffer to the destination, such as a file or the console, without closing the stream.
+-> In Python file handling, the .readline() method reads and returns a single line from the file as a string (or a bytes object if the file is opened in binary mode).  The returned string includes the trailing newline character (\n) if one exists in the file. 
+-> To make a parameter optional in a Python function, assign a default value to the parameter in the function definition using the syntax parameter_name=default_value.
