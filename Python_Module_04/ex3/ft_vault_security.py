@@ -17,7 +17,7 @@ WRITE_SUCCESS_MESSAGE: str = "Content successfully written to file"
 
 # ---- Code's Logic
 def secure_archive(file_name: str,
-                   file_action: str = "",
+                   file_action: str = "read",
                    file_content: str = ""
                    ) -> tuple[bool, str]:
     """
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     print()
 
     print(READ_NONEXISTENT)
-    result: tuple[bool, str] = secure_archive("yoyo", "write")
+    result: tuple[bool, str] = secure_archive("42")
     print(result)
 
     print()
