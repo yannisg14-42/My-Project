@@ -33,6 +33,19 @@ def main() -> None:
     If we can open the file but cannot read it, then read() raises, 'except'
     catches the error, display an error message, and we close the file at
     the end.
+    Afterward, we modify the content of our file to put a '#' at the end of
+    each line.
+    We then modify our input() with sys.stdout.writ() to display a message and
+    return prompt. On the prompt if we enter nothing or only whitspaces,
+    a simple message is displayed.
+    Otherwise if we write a valid str on sys.stdin, our modified content
+    is saved into a file with the str as file's name in 2 steps.
+    First it try to open the new file in 'w' mode; if it fails, open() raises,
+    'except' catches and we display an error message on sys.stderr.
+    Secondly we try to write the new content in the new file; if it fails,
+    .write() raises, 'except' catches, and display an error message on
+    sys.stderr.
+    In the 'finally' block the new file is always closed.
     """
 
     if len(sys.argv) != 2:
