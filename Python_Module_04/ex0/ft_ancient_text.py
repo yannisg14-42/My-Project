@@ -13,7 +13,7 @@ GRAB: str = "Accessing file"
 EDGE_OF_TEXT: str = "---"
 
 
-# ---- Code Logic
+# ---- Code's Logic
 def main() -> None:
 
     """
