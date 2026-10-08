@@ -11,3 +11,30 @@
 08.10.2026
 -> For mypy I can use tuple[float, ...]  meaning a tuple of any number float when tuple a list[] of unknown lenght,
 or tuple[exact number of float] if I know the lenght
+
+            |-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+            |List                                 |Set                                  |Tuple                                     |Dictionary                               |
+            |                                     |                                     |                                          |                                         |
+|-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Mutability |Mutable: Elements can be modified    |Mutable: Elements can be added       |Immutable: Once created, elements         |Mutable: Elements can be added           |
+|           |after creation.                      |or removed.                          |cannot be modified.                       |or removed.                              |
+|-------------------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Ordering   |Ordered: Maintains the order of      |Unordred: Does not maintain the      |Ordered: Maintains the order of           |Ordered: Maintains the order of          |
+|           |elements.                            |order of elements.                   |elements.                                 |elements(insertion order).               |
+|-------------------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Duplicates |Allows Duplicates: Can have multiples|Unique Elements: Duplicate values    |Allows Duplicates: Can contain duplicate  |Keys are unique, Values can              |
+|           |occurrences of the same value.       |are automatically removed.           |values.                                   |repeat.                                  |
+|-------------------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Indexing   |Supports indexing and slicing.       | Not supported.                      |Supports indexing and slicing             |Supports key-based indexing and slicing  |
+|-------------------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Performance|slower for memberhip tests.          |Faster memberhip tests.              |Faster than lists                         |Faster than lists and tuples             |
+|-------------------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Use Case   |When frequent modifications          |When uniqueness is, memberhip tests, |When immutability is required, and when   |Used for fast lookups, mapping, and      |
+|           |are required. Very flexible and      |and eliminating duplicate are needed.|data should not be modified after creation|counting due to their efficient key-value|
+|           |easy to use.                         |                                     |                                          |pair structure                           |
+|-------------------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Storage    |Heterogeneaous: Can store different  |Heterogeneaous: Can store different  |Heterogeneaous: Can store different       |Heterogeneaous: Can store different      |
+|           |data types.                          |data types.                          |data types.                               |data types                               |
+|-------------------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Syntax     |[1, 2]                               |{1,2}                                |(1, 2)                                    |{"a": 1}                                 |
+|-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
