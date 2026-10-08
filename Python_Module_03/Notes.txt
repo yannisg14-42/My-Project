@@ -36,5 +36,5 @@ or tuple[exact number of float] if I know the lenght
 |Storage    |Heterogeneaous: Can store different  |Heterogeneaous: Can store different  |Heterogeneaous: Can store different       |Heterogeneaous: Can store different      |
 |           |data types.                          |data types.                          |data types.                               |data types                               |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
-|Syntax     |[1, 2]                               |set(1,2)                             |  |(1, 2)                                 |   |{"a": 1}                             |
+|Syntax     |[1, 2]                               |set(1,2)                             |(1, 2)                                    |{"a": 1}                                 |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
