@@ -32,15 +32,16 @@ def main() -> None:
     If we can open the file but cannot read it, then read() raises, 'except'
     catches the error, display an error message, and we close the file at
     the end.
-    Afterward, we modify the content of our file to put a '#' at the end of each
-    line.
-    We then input() a message and return prompt. On the prompt if we enter nothing or
-    only whitspaces, a simple message is displayed. Otherwise if we write a valid str,
-    our modified content is saved into a file with the str as file's name in 2 steps.
+    Afterward, we modify the content of our file to put a '#' at the end
+    of each line.
+    We then input() a message and return prompt. On the prompt if we enter
+    nothing or only whitspaces, a simple message is displayed. Otherwise if
+    we write a valid str, our modified content is saved into a file with
+    the str as file's name in 2 steps.
     First it try to open the new file in 'w' mode; if it fails, open() raises,
     'except' catches and we display an error message.
-    Secondly we try to write the new content in the new file; if it fails, .write()
-    raises, 'except' catches, and display an error message.
+    Secondly we try to write the new content in the new file; if it fails,
+    .write() raises, 'except' catches, and display an error message.
     In the 'finally' block the new file is always closed.
     """
 
@@ -121,7 +122,7 @@ def main() -> None:
                 save_file_destination.write("\n")
 
             except OSError as e:
-                print(f"{ERROR_WRITING} '{new_file}'")
+                print(f"{ERROR_WRITING} '{new_file}': {e}")
 
             else:
                 print(f"{SAVED} '{new_file}'.")
