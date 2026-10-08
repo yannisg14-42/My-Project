@@ -3,11 +3,11 @@
 import sys
 
 
-# >>>Global Constants<<<
-
+# ---- Global Constants
 BANNER: str = "<|> Player Score Analytics <|>"
-EMPTY_SCORE: str = "No scores provided. Usage: " \
+EMPTY_SCORE: str = ("No scores provided. Usage: "
                     "python3 ft_score_analytics.py <score1> <score2> ..."
+                    )
 SCORE_LIST: str = "Scores at our disposal (ㆆ_ㆆ)"
 PLAYER_COUNT: str = "Players ready ᕙ( •̀ ᗜ •́ )ᕗ"
 SCORES_SUM: str = "All scores added together ✎﹏﹏﹏﹏"
@@ -18,6 +18,7 @@ RANGE_SCORE: str = "Range of our scores ✎﹏﹏﹏﹏"
 WRONG_PARAMETER: str = "This score is not a valid number (•ˋ _ ˊ•)"
 
 
+# ---- Code's Logic
 def ft_score_analytics() -> None:
 
     """
@@ -34,17 +35,21 @@ def ft_score_analytics() -> None:
     """
 
     score_list: list[float] = []
+
     inf: float = float("inf")
+
     minus_inf: float = float("-inf")
 
     print(BANNER)
 
     score_index: int = 1
+
     len_without_program_name: int = len(sys.argv) - 1
 
     while score_index <= len_without_program_name:
         try:
             player_score: float = float(sys.argv[score_index])
+
             if player_score < inf and player_score > minus_inf:
                 score_list.append(player_score)
 
@@ -72,8 +77,7 @@ def ft_score_analytics() -> None:
         print(f"{RANGE_SCORE} {max(score_list) - min(score_list)}")
 
 
-# >>>>Runs the Code<<<<
-
+# ---- Runs the Code
 if __name__ == "__main__":
 
     # This line runs the block of if we call the program DIRECTLY,
