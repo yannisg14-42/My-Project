@@ -1,0 +1,61 @@
+{
+  "_comment": "Simplified sample labels in openFDA's response shape, for tests only. Texts are paraphrased, not real label wording.",
+  "labels": [
+    {
+      "id": "test-warfarin",
+      "openfda": {
+        "generic_name": ["WARFARIN SODIUM"],
+        "brand_name": ["COUMADIN", "JANTOVEN"],
+        "pharm_class_epc": ["Vitamin K Antagonist [EPC]"]
+      },
+      "boxed_warning": ["WARNING: BLEEDING RISK. Warfarin can cause major or fatal bleeding."],
+      "drug_interactions": ["Drugs that increase bleeding risk include antiplatelet agents and NSAIDs. Monitor INR closely when starting or stopping other medicines."]
+    },
+    {
+      "id": "test-ibuprofen",
+      "openfda": {
+        "generic_name": ["IBUPROFEN"],
+        "brand_name": ["ADVIL", "MOTRIN IB"],
+        "pharm_class_epc": ["Nonsteroidal Anti-inflammatory Drug [EPC]"]
+      },
+      "warnings": ["Stomach bleeding warning: the chance is higher if you take a blood thinning (anticoagulant) or steroid drug."],
+      "drug_interactions": ["Anticoagulants: ibuprofen and anticoagulants such as warfarin have a synergistic effect on bleeding."]
+    },
+    {
+      "id": "test-sertraline",
+      "openfda": {
+        "generic_name": ["SERTRALINE HYDROCHLORIDE"],
+        "brand_name": ["ZOLOFT"],
+        "pharm_class_epc": ["Serotonin Reuptake Inhibitor [EPC]"]
+      },
+      "contraindications": ["Use with MAOIs, or within 14 days of stopping MAOIs, is contraindicated because of the risk of serotonin syndrome."],
+      "drug_interactions": ["Serotonergic drugs increase the risk of serotonin syndrome."]
+    },
+    {
+      "id": "test-phenelzine",
+      "openfda": {
+        "generic_name": ["PHENELZINE SULFATE"],
+        "brand_name": ["NARDIL"],
+        "pharm_class_epc": ["Monoamine Oxidase Inhibitor [EPC]"]
+      },
+      "drug_interactions": ["Do not combine with other antidepressants."]
+    },
+    {
+      "id": "test-acetaminophen",
+      "openfda": {
+        "generic_name": ["ACETAMINOPHEN"],
+        "brand_name": ["TYLENOL"]
+      },
+      "warnings": ["Liver warning: severe liver damage may occur if you take more than the maximum daily amount."]
+    },
+    {
+      "id": "test-combo",
+      "openfda": {
+        "generic_name": ["ACETAMINOPHEN AND CODEINE PHOSPHATE"],
+        "brand_name": ["TYLENOL WITH CODEINE"],
+        "pharm_class_epc": ["Opioid Agonist [EPC]"]
+      },
+      "drug_interactions": ["Benzodiazepines may cause profound sedation."]
+    }
+  ]
+}
