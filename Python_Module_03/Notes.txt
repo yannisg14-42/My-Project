@@ -1,12 +1,13 @@
 15.09.2026:
-
 -> len() does the job of the argc in C so we check argc <=> len(sys.argv)cl
 
 20.09.2026:
-
 -> NaN is the only number with the properti NaN == NaN is False. All other number evaluate as number == number is True
 -> For inf, inf always > finite value and finit value always > -inf. 
 
 01.10.2026
-
 -> When except in try/except fires, the value of the variable that triggers it, is lost.
+
+08.10.2026
+-> For mypy I can use tuple[float, ...]  meaning a tuple of any number float when tuple a list[] of unknown lenght,
+or tuple[exact number of float] if I know the lenght
