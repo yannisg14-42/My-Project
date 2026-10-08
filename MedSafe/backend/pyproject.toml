@@ -1,0 +1,19 @@
+[project]
+name = "medsafe-backend"
+version = "0.1.0"
+description = "Medication safety checker API built on openFDA drug labels"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.mypy]
+strict = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
