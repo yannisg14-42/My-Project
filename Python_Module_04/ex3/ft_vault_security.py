@@ -2,21 +2,25 @@
 
 # ---- Global Constants
 BANNER: str = "=== Cyber Archives Security ==="
-READ_NONEXISTENT: str = ("Using 'secure_archive' to read "
-                         "from a nonexistent file:"
-                         )
-READ_INACCESSIBLE: str = ("Using 'secure_archive' to read "
-                          "from an inaccessible file:"
-                          )
+READ_NONEXISTENT: str = (
+        "Using 'secure_archive' to read "
+        "from a nonexistent file:"
+)
+READ_INACCESSIBLE: str = (
+        "Using 'secure_archive' to read "
+        "from an inaccessible file:"
+)
 READ_SUCCESS: str = "Using 'secure_archive' to read from a regular file:"
-WRITE_SUCCESS: str = ("Using 'secure_archive' to write "
-                      "previous content to a new file:"
-                      )
+WRITE_SUCCESS: str = (
+        "Using 'secure_archive' to write "
+        "previous content to a new file:"
+)
 WRITE_SUCCESS_MESSAGE: str = "Content successfully written to file"
 EVOLVING: str = "Using 'secure_archive' to evolve into a transcendent being"
-WRONG_FILE_ACTION: str = ("This function expect as file_action either "
-                          "'read' or 'write'"
-                          )
+WRONG_FILE_ACTION: str = (
+        "This function expect as file_action either "
+        "'read' or 'write'"
+)
 
 
 # ---- Code's Logic
