@@ -1,1 +1,2 @@
-
+12.10.202&
+|-> An abstract class, is a class that cannot be instantiated directly and serves as blueprint for other classes. It is used to define a common interface or structure that subclasses must inherit and implement. If we try to instantiate this type of class, it raises a TypeError: Can't instantiate abstract class [ClassName] with abstract methods [methodName]
