@@ -4,3 +4,4 @@
 16.10.2026
 |-> 'pass' means 'do nothing'. We use it as a filler when we use def ...:, but the function has no body.
 |-> For relative import '.' before the module means current package so same directory. '..' refers to parent package. Multiple dot continue to step up the hierarchy
+|-> In python __all__ in __init__.py is a list[str] that explicitly define which modules, classes, or functions are exported when user perform a wildcard import.
