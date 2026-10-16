@@ -7,7 +7,6 @@ from abc import ABC, abstractmethod
 # ---- Code
 # ---- Parent Class
 class Creature(ABC):
-
     """
     """
 
@@ -36,7 +35,6 @@ class Creature(ABC):
 
 # ---- Child Classes
 class Flameling(Creature):
-
     """
     """
 
@@ -53,7 +51,6 @@ class Flameling(Creature):
 
 
 class Pyrodon(Creature):
-
     """
     """
 
@@ -70,7 +67,6 @@ class Pyrodon(Creature):
 
 
 class Aquabub(Creature):
-
     """
     """
 
@@ -87,7 +83,6 @@ class Aquabub(Creature):
 
 
 class Torragon(Creature):
-
     """
     """
 
