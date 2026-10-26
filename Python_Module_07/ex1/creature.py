@@ -2,8 +2,7 @@
 
 
 from ex0.creature import Creature
-from .heal import HealCapability
-from .transform import TransformCapability
+from .capabilities import HealCapability, TransformCapability
 
 
 # ---- Code

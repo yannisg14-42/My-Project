@@ -2,8 +2,7 @@
 
 
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
-from ex1.heal import HealCapability
-from ex1.transform import TransformCapability
+from ex1.capabilities import HealCapability, TransformCapability
 from ex0 import CreatureFactory
 
 

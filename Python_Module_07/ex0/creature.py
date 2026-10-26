@@ -7,7 +7,6 @@ from abc import ABC, abstractmethod
 # ---- Code
 # ---- Parent Class
 class Creature(ABC):
-
     """
     """
 
@@ -29,6 +28,9 @@ class Creature(ABC):
     def describe(self) -> str:
         return str(self)
 
+    def get_creature_name(self) -> str:
+        return self._creature_name
+
     @abstractmethod
     def attack(self) -> str:
         pass
@@ -36,7 +38,6 @@ class Creature(ABC):
 
 # ---- Child Classes
 class Flameling(Creature):
-
     """
     """
 
@@ -53,7 +54,6 @@ class Flameling(Creature):
 
 
 class Pyrodon(Creature):
-
     """
     """
 
@@ -70,7 +70,6 @@ class Pyrodon(Creature):
 
 
 class Aquabub(Creature):
-
     """
     """
 
@@ -87,7 +86,6 @@ class Aquabub(Creature):
 
 
 class Torragon(Creature):
-
     """
     """
 
