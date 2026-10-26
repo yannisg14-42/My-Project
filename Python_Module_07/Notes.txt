@@ -10,3 +10,6 @@
 |-> Every package is a folder, and a folder becomes a package when it has '__init__.py' in it.
 |-> A class can iherit from multiple parents, aka multiple inheritance; Child(Parent1, Parent2, ...). When we want to resolve methods conflict, Python uses Method Resolution Order, to determine which parent class's method is called, following a left_to_right, depth-first-search path.
 |-> If the __init__.py contains the class already I can write 'from [package] import [class]' else I write 'from [package].[module] import [class]'
+
+26.10.2026
+|-> isinstance() combines Types while TypeGuard replace them
