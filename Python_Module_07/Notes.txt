@@ -13,3 +13,6 @@
 
 26.10.2026
 |-> isinstance() combines Types while TypeGuard replace them
+
+29.10.2026
+|-> Decoupling in Python refers to the architectural practice of separating components to reduce dependencies, thereby enhancing modularity, testability, and maintainability.
