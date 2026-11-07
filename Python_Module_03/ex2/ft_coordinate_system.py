@@ -3,7 +3,6 @@
 
 import math
 
-
 # ---- Global Constants
 BANNER: str = "=== Game Coordinate System ==="
 ENTER_COORDINATES: str = "Enter new coordinates as floats in format 'x,y,z': "

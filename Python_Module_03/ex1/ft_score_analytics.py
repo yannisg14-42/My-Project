@@ -2,7 +2,6 @@
 
 import sys
 
-
 # ---- Global Constants
 BANNER: str = "<|> Player Score Analytics <|>"
 EMPTY_SCORE: str = ("No scores provided. Usage: "

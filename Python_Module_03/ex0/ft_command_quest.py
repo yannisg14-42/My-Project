@@ -2,7 +2,6 @@
 
 import sys
 
-
 # ---- Global Constants
 HEADER: str = "=== Command Quest ==="
 PROGRAM: str = "Program name:"
