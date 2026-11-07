@@ -25,16 +25,19 @@ or tuple[exact number of float] if I know the lenght
 |Duplicates |Allows Duplicates: Can have multiples|Unique Elements: Duplicate values    |Allows Duplicates: Can contain duplicate  |Keys are unique, Values can              |
 |           |occurrences of the same value.       |are automatically removed.           |values.                                   |repeat.                                  |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
-|Indexing   |Supports indexing and slicing.       | Not supported.                      |Supports indexing and slicing             |Supports key-based indexing and slicing  |
+|Indexing   |Supports indexing and slicing.       | Not supported.                      |Supports indexing and slicing             |Key look-up only, no slicing.            |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
-|Performance|slower for memberhip tests.          |Faster memberhip tests.              |Faster than lists                         |Faster than lists and tuples             |
+|Performance|slower for memberhip tests.          |Faster memberhip tests.              |Tuples are slightly cheaper to create and |Faster than lists and tuples.            |
+|           |                                     |                                     |use less memory.                          |                                         |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
 |Use Case   |When frequent modifications          |When uniqueness is, memberhip tests, |When immutability is required, and when   |Used for fast lookups, mapping, and      |
 |           |are required. Very flexible and      |and eliminating duplicate are needed.|data should not be modified after creation|counting due to their efficient key-value|
-|           |easy to use.                         |                                     |                                          |pair structure                           |
+|           |easy to use.                         |                                     |                                          |pair structure.                          |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
 |Storage    |Heterogeneaous: Can store different  |Heterogeneaous: Can store different  |Heterogeneaous: Can store different       |Heterogeneaous: Can store different      |
-|           |data types.                          |data types.                          |data types.                               |data types                               |
+|           |data types.                          |data types.                          |data types.                               |data types.                              |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
-|Syntax     |[1, 2]                               |set(1,2)                             |(1, 2)                                    |{"a": 1}                                 |
+|Syntax     |[1, 2]                               |set{1,2} and an empty set is set()   |(1, 2)                                    |{"a": 1}                                 |
+|-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+|Hashable   |No                                   |No                                   |Only if everything inside is hashable     |Strings and numbers yes                  |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
