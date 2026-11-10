@@ -29,34 +29,28 @@ def gen_player_achievement() -> set[str]:
 
     return set(player_achievement)
 
+def main() -> None:
+    """
+    The main
+    """
 
-# ---- Runs the Code
-if __name__ == "__main__":
-    # This line runs the block of if we call the program DIRECTLY,
-    # but will not, if it is imported.
+    players: list[str] = ["Yukina", "Hikari", "Kouji", "Yuki"]
 
-    print(HEADER)
+    achievements: list[set[str]] = [gen_player_achievement(), gen_player_achievement(), gen_player_achievement(), gen_player_achievement()]
 
-    set1: set[str] = gen_player_achievement()
-    set2: set[str] = gen_player_achievement()
-    set3: set[str] = gen_player_achievement()
-    set4: set[str] = gen_player_achievement()
+    i: int = 0
 
-    all_achievements: set[str] = set1.union(set2, set3, set4)
+    all_achievements: set[str] = set()
 
-    common_achievements: set[str] = set1.intersection(set2, set3, set4)
+    common_achievements: set[str] = set()
 
-    unique_achievements1: set[str] = set1.difference(set2, set3, set4)
-    unique_achievements2: set[str] = set2.difference(set1, set3, set4)
-    unique_achievements3: set[str] = set3.difference(set1, set2, set4)
-    unique_achievements4: set[str] = set4.difference(set1, set2, set3)
+    while i < len(players) and i < len(achievements):
+        print(f"Player {players[i]}: {achievements[i]}")
 
-    print()
+        all_achievements: set[str] = all_achievements.union(achievements[i])
 
-    print(f"Player Yukina: {set1}")
-    print(f"Player Hikari: {set2}")
-    print(f"Player Kouji: {set3}")
-    print(f"Player Yuki: {set4}")
+        common_achievements: set[str] = common_achievements.intersection(achievements[i])
+        i += 1
 
     print()
 
@@ -68,14 +62,24 @@ if __name__ == "__main__":
 
     print()
 
-    print(f"Only Yukina has: {unique_achievements1}")
-    print(f"Only Hikari has: {unique_achievements2}")
-    print(f"Only Kouji has: {unique_achievements3}")
-    print(f"Only Yuki has: {unique_achievements4}")
+    i: int  = 0
+
+    while i < len(players) and i < len(achievements):
+        missing_achievements: set[str] = all_achievements.difference(achievements[i])
+
+        print(f"{players[i]} {MISSING} {missing_achievements}")
+        i += 1
+
+        
+
+
+# ---- Runs the Code
+if __name__ == "__main__":
+    # This line runs the block of if we call the program DIRECTLY,
+    # but will not, if it is imported.
+
+    print(HEADER)
 
     print()
 
-    print(f"Yukina {MISSING} {all_achievements.difference(set1)} ")
-    print(f"Hikari {MISSING} {all_achievements.difference(set2)}")
-    print(f"Kouji {MISSING} {all_achievements.difference(set3)}")
-    print(f"Yuki {MISSING} {all_achievements.difference(set4)}")
+    main()    
