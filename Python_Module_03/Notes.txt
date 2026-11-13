@@ -22,8 +22,9 @@ or tuple[exact number of float] if I know the lenght
 |Ordering   |Ordered: Maintains the order of      |Unordred: Does not maintain the      |Ordered: Maintains the order of           |Ordered: Maintains the order of          |
 |           |elements.                            |order of elements.                   |elements.                                 |elements(insertion order).               |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
-|Duplicates |Allows Duplicates: Can have multiples|Unique Elements: Duplicate values    |Allows Duplicates: Can contain duplicate  |Keys are unique, Values can              |
-|           |occurrences of the same value.       |are automatically removed.           |values.                                   |repeat.                                  |
+|Duplicates |Allows Duplicates: Can have multiples|Unique Elements: Duplicate values    |Allows Duplicates: Can contain duplicate  |Keys are unique means the last write win,|
+|           |occurrences of the same value.       |are automatically removed.           |values.                                   |not duplicates are rejected. Values can  |
+|           |                                     |                                     |                                          |repeat.                                  |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
 |Indexing   |Supports indexing and slicing.       | Not supported.                      |Supports indexing and slicing             |Key look-up only, no slicing.            |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
@@ -41,3 +42,6 @@ or tuple[exact number of float] if I know the lenght
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
 |Hashable   |No                                   |No                                   |Only if everything inside is hashable     |Strings and numbers yes                  |
 |-----------|-------------------------------------|-------------------------------------|------------------------------------------|-----------------------------------------|
+
+13.11.2026
+-> .keys() and .values() method only give a view of the keys and values in the dict. They are not subscriptable, i.e you cannot index them.
