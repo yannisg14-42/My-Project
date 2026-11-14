@@ -45,3 +45,7 @@ or tuple[exact number of float] if I know the lenght
 
 13.11.2026
 -> .keys() and .values() method only give a view of the keys and values in the dict. They are not subscriptable, i.e you cannot index them.
+
+14.11.2026
+-> To print a list without the [], you can use print with the unpacker operator '*', e.g my_list = [1,2,3] then print(*my_list); output: 1 2 3
+To print with a seaprator then instead print(*my_list, sep=", "); output: 1, 2, 3 etc.
