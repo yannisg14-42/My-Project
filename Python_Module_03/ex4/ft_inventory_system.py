@@ -113,7 +113,7 @@ def main() -> None:
               f"with quantity {least_quantity}"
         )
 
-        dictionary.update({"magic_item": 1})
+        dictionary.update({"magic_item": 7, "sword": 1})
 
         print(f"Updated inventory: {dictionary}")
 
