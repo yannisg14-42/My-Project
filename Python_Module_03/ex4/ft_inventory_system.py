@@ -2,7 +2,7 @@
 
 import sys
 
-# ---- Global constants
+# ---- global constants
 HEADER: str = "=== Inventory System Analysis ==="
 USAGE: str = "Usage: python3 ft_inventory_system.py <item_name>:<quantity> ..."
 TOTAL: str = "Total quantity of the"
@@ -85,23 +85,33 @@ def main() -> None:
             print(f"Item {items_list[i]} represents {item_percentage}%")
             i += 1
 
-        least: int = items_quantity[0]
+        least: int = 0
 
         most: int = 0
 
-        i = 0
+        i = 1
 
         while i < items_total:
-            if items_quantity[i] <= least:
-                least = items_quantity[i]
+            if items_quantity[i] < items_quantity[least]:
+                least = i
 
-            if items_quantity[i] >= most:
-                most = items_quantity[i]
+            if items_quantity[i] > items_quantity[most]:
+                most = i
+
             i += 1
 
-        print(f"Item most abundant: with quantity {most}")
+        most_item: str = items_list[most]
+        least_item: str = items_list[least]
 
-        print(f"Item least abundant: with quantity {least}")
+        most_quantity: int = items_quantity[most]
+        least_quantity: int = items_quantity[least]
+
+        print(f"Item most abundant: {most_item} with quantity {most_quantity}")
+
+        print(
+              f"Item least abundant: {least_item} "
+              f"with quantity {least_quantity}"
+        )
 
         dictionary.update({"magic_item": 1})
 
