@@ -18,6 +18,11 @@ ACTIONS: list[str] = [
 # ---- Code
 def gen_event() -> Generator[tuple[str, str], None, None]:
     """
+    A function, that becomes a Generator after the use of the "yield"
+    keyword.
+
+    It pick a random member from a list of PLAYERS and a list of
+    ACTIONS, then form a tuple() with those two elements and yield it.
     """
 
     while True:
@@ -27,13 +32,37 @@ def gen_event() -> Generator[tuple[str, str], None, None]:
         player_with_action: tuple[str, str] = (player, action)
         yield player_with_action
 
-def consume_event() -> Generator[list[tuple], None, None] :
+
+def consume_event(
+        list_of_events: list[tuple[str, str]]
+) -> Generator[tuple[str, str], None, None]:
     """
+    A function, that also becomes a generator using the "yield"
+    keyword.
+
+    This generator use random.randrange() to get a random index.
+    Afterwards, we .pop() at the index we previously got and yield
+    the result.
     """
 
-    event: tuple(str, str)
+    while list_of_events:
+        event_index: int = random.randrange(len(list_of_events))
+
+        removed: tuple[str, str] = list_of_events.pop(event_index)
+
+        yield removed
+
+
 def main() -> None:
     """
+    The main responsible of doing all the tests.
+
+    We use it to generate with the gen_event() generator, thousand
+    tuple() of player with their action.
+    Afterward, we create a list holding ten random tuples.
+    And finally the consume_event() generator will remove a random
+    tuple() from the list, and we print the removed event as well as
+    the current list[tuple[str, str]] without the removed element.
     """
 
     print(HEADER)
@@ -47,10 +76,18 @@ def main() -> None:
 
     list_of_events: list[tuple[str, str]] = []
 
-    for i in range(10):
+    for _ in range(10):
         list_of_events.append(next(event_stream))
 
     print(f"Built list of {len(list_of_events)} events: {list_of_events}")
+
+    consume_stream: Generator[tuple[str, str], None, None] = (
+            consume_event(list_of_events)
+    )
+
+    for ev in consume_stream:
+        print(f"Got event from list: {ev}")
+        print(f"Remains in list: {list_of_events}")
 
 
 # ---- Run the code
@@ -59,4 +96,3 @@ if __name__ == "__main__":
     # but will not do so, if we importing it.
 
     main()
-
