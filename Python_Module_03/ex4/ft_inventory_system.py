@@ -11,7 +11,23 @@ TOTAL: str = "Total quantity of the"
 # ---- Code
 def main() -> None:
     """
-    A program
+    Build and analyse a game inventory from command-line arguments.
+
+    Each argument must follow the format <item_name>:<quantity>.
+    Arguments are checked one by one, and rejected with a message when:
+        - they do not split into exactly two pieces on ':',
+        - the quantity cannot be converted to int,
+        - the quantity is zero or negative,
+        - the item name is already in the inventory (first one wins).
+    Valid arguments are stored in a dict, item name -> quantity.
+
+    If no valid item remains, a message is printed and the function
+    returns early. Otherwise it prints:
+        - the inventory and the list of item names,
+        - the total quantity and each item's share in percent,
+        - the most and least abundant items (the first item on the
+          command line wins a tie, using strict comparisons),
+        - the inventory again after adding a new item with update().
     """
 
     print(HEADER)
@@ -113,7 +129,7 @@ def main() -> None:
               f"with quantity {least_quantity}"
         )
 
-        dictionary.update({"magic_item": 7, "sword": 1})
+        dictionary.update({"magic_item": 7, "sword": 4})
 
         print(f"Updated inventory: {dictionary}")
 
