@@ -3,6 +3,7 @@
 
 import math
 
+
 # ---- Global Constants
 BANNER: str = "=== Game Coordinate System ==="
 ENTER_COORDINATES: str = "Enter new coordinates as floats in format 'x,y,z': "
@@ -11,6 +12,8 @@ COORDINATE_SET_2: str = "Get second set of coordinates"
 TUPLE_CREATED: str = "Got a first tuple:"
 TUPLE_CREATED_1: str = "Got a second tuple"
 ERROR: str = "Error on parameter"
+INF: float = float("inf")
+MINUS_INF: float = float("-inf")
 
 
 # ---- Code's Logic
@@ -27,10 +30,15 @@ def get_player_pos() -> tuple[float, ...]:
     the exact Error, we put it inside a variables in a loop so we can get the
     index of where it fails. Then we print the Error message.
     Else if float() succeed, then we return a tuple() of our list[float]
+    I added an additional guard, that check that the user cannot enter values
+    like inf, -inf or nan, else the program print which parameter is not a
+    finite value, and at the end of the try/except, if the tuple we created
+    has not exactly 3 values, print an error message saying that the tuple
+    is invalid.
 
     Returns:
-        a tuple[float, ...] meaning a tuple of any float, that is our set of
-        coordinates
+        a tuple[float, ...] meaning a tuple of any number float, that is our
+        set of coordinates
     """
 
     # ---- Input Logic; keep repeating until we enter a correct syntax
@@ -47,18 +55,27 @@ def get_player_pos() -> tuple[float, ...]:
         index: int = 0
 
         temp: list[float] = []
+
         try:
             while index < 3:
                 c: float = float(coordinates[index])
 
-                temp.append(c)
+                if c < INF and c > MINUS_INF:
+                    temp.append(c)
+
+                else:
+                    print(f"'{coordinates[index]}' not a finite value.")
                 index += 1
 
         except ValueError as e:
             print(f"{ERROR} '{coordinates[index]}': {e}")
             continue
 
-        return tuple(temp)
+        if len(temp) != 3:
+            print("Invalid tuple!")
+
+        else:
+            return tuple(temp)
 
 
 def get_distance(
@@ -67,7 +84,7 @@ def get_distance(
         ) -> float:
 
     """
-    A simple functionthat calculate the distance between points of
+    A simple function that calculate the distance between points of
     coordinates (x,y,z)
 
     Args:
@@ -75,7 +92,7 @@ def get_distance(
         second_tuple: the second set of coordinates stored in a tuple
 
     Returns:
-        the distance between the point by doing doing math.sqrt(float)
+        the distance between the point by doing math.sqrt(float)
     """
 
     total: float = 0.0
